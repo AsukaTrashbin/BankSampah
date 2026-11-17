@@ -1,0 +1,289 @@
+:root {
+  --cb-bg: #010b1c;
+  --cb-accent: #ff8c00;
+  --cb-green: #3ddc5a;
+  --cb-text: #ffffff;
+}
+
+body {
+  margin: 0;
+  background: #1e1e1e;
+}
+
+.cb-navbar {
+  background: var(--cb-bg);
+  padding-block: 1.25rem;
+}
+
+/* Logo */
+.cb-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--cb-text);
+  font-weight: 700;
+  font-size: 2rem;
+  text-decoration: none;
+}
+.cb-brand:hover { color: var(--cb-text); }
+
+.cb-logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--cb-green);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+/* Links */
+.cb-nav .nav-link {
+  color: var(--cb-text);
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  padding: 0.6rem 1.1rem;
+  position: relative;
+}
+.cb-nav .nav-link:hover,
+.cb-nav .nav-link:focus-visible {
+  color: var(--cb-accent);
+}
+.cb-nav .nav-link.active {
+  color: var(--cb-accent);
+  font-weight: 600;
+}
+.cb-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 0.1rem;
+  height: 2px;
+  background: var(--cb-accent);
+}
+
+/* Login CTA */
+.cb-login {
+  color: var(--cb-green);
+  border: 1px solid var(--cb-green);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.55rem 1.4rem;
+  margin-left: 0.75rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.cb-login:hover,
+.cb-login:focus-visible {
+  background: var(--cb-green);
+  color: var(--cb-bg);
+}
+
+/* Mobile menu */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Phones and tablets: restore compact sizing */
+@media (max-width: 991.98px) {
+  .cb-navbar { padding-block: 0.9rem; }
+  .cb-brand { font-size: 1.6rem; }
+  .cb-logo { width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+  .cb-nav { padding-block: 0.75rem; }
+  .cb-nav .nav-link { font-size: 0.85rem; padding: 0.5rem 0.9rem; }
+  .cb-nav .nav-link.active::after { left: 0.9rem; right: 0.9rem; }
+  .cb-login { display: inline-block; margin: 0.5rem 0 0; font-size: 0.85rem; padding: 0.4rem 1.1rem; }
+}
+
+/* ===== Login page ===== */
+.cb-login-page {
+  background: var(--cb-cream);
+  color: var(--cb-ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cb-main {
+  flex: 1;
+  padding: 3rem 1.5rem;
+}
+
+/* Hero card */
+.cb-hero {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  min-height: 640px;
+  background:
+    linear-gradient(180deg, rgba(1,11,28,.25) 0%, rgba(1,11,28,.55) 100%),
+    url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200") center/cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+}
+.cb-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cb-lime);
+  font-weight: 600;
+}
+.cb-hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-top: 1rem;
+}
+.cb-lead {
+  font-size: 1.05rem;
+  max-width: 26rem;
+  margin-top: 1.25rem;
+  color: rgba(255,255,255,.9);
+}
+.cb-hero-card {
+  background: var(--cb-bg);
+  border-radius: 0.9rem;
+  padding: 1.5rem 1.75rem;
+}
+.cb-hero-card h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0.6rem 0 0.9rem;
+}
+.cb-tags {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,.8);
+}
+.cb-tags span + span::before {
+  content: "·";
+  margin: 0 0.5rem;
+  color: var(--cb-lime);
+}
+
+/* Form */
+.cb-form-wrap {
+  max-width: 386px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+.cb-form-wrap .cb-eyebrow { color: #5a7a3a; }
+.cb-form-wrap h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--cb-ink);
+  margin: 0.6rem 0 0.75rem;
+}
+.cb-sub {
+  color: var(--cb-muted);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+.cb-login-page .form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cb-ink);
+  margin-bottom: 0.4rem;
+}
+.cb-login-page .form-control {
+  border: 1px solid var(--cb-border);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  font-size: 0.95rem;
+}
+.cb-login-page .form-control:focus {
+  border-color: var(--cb-ink);
+  box-shadow: 0 0 0 3px rgba(18,55,42,.12);
+}
+.cb-password { position: relative; }
+.cb-password .form-control { padding-right: 4.5rem; }
+.cb-toggle {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cb-ink);
+  padding: 0;
+}
+.cb-login-page .form-check-input { border-color: var(--cb-border); }
+.cb-login-page .form-check-input:checked {
+  background-color: var(--cb-ink);
+  border-color: var(--cb-ink);
+}
+.cb-login-page .form-check-label {
+  font-size: 0.85rem;
+  color: var(--cb-muted);
+}
+.cb-forgot {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cb-ink);
+  text-decoration: none;
+}
+.cb-forgot:hover { text-decoration: underline; }
+
+.btn-cb {
+  background: var(--cb-lime);
+  color: var(--cb-ink);
+  font-weight: 600;
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  width: 100%;
+  transition: filter 0.2s;
+}
+.btn-cb:hover,
+.btn-cb:focus-visible {
+  background: var(--cb-lime);
+  color: var(--cb-ink);
+  filter: brightness(0.95);
+}
+.cb-signup {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--cb-muted);
+  margin-top: 1.5rem;
+}
+.cb-signup a {
+  color: var(--cb-ink);
+  font-weight: 600;
+}
+.cb-back {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--cb-muted);
+  margin-top: 1.5rem;
+}
+
+/* Footer */
+.cb-footer {
+  border-top: 1px solid var(--cb-border);
+  padding: 1.25rem 0;
+  font-size: 0.8rem;
+  color: var(--cb-muted);
+}
+.cb-footer a {
+  color: var(--cb-muted);
+  text-decoration: none;
+}
+.cb-footer a:hover { color: var(--cb-ink); }
+
+@media (max-width: 991.98px) {
+  .cb-hero { min-height: 460px; }
+  .cb-hero h1 { font-size: 2.2rem; }
+  .cb-form-wrap { padding-top: 3rem; }
+}
