@@ -29,17 +29,6 @@ body {
 }
 .cb-brand:hover { color: var(--cb-text); }
 
-.cb-logo {
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 50%;
-  background: var(--cb-green);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 1.6rem;
-}
-
 /* Links */
 .cb-nav .nav-link {
   color: var(--cb-text);
