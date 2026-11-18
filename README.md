@@ -18,7 +18,7 @@ Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dal
 
 **FItur**
 
-Sitemap: [SiteMap_CityBin.txt](https://github.com/user-attachments/files/35007093/SiteMap_CityBin.txt)
+Sitemap: https://app.diagrams.net/
 
 **Struktur Project** 
 
