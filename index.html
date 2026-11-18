@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CityBin</title>
+  <meta name="description" content="CityBin — SDG 11: Sustainable Cities and Communities. Ruang kota yang inklusif, aman, tangguh, dan berkelanjutan melalui partisipasi warga.">
+  <title>CityBin — SDG 11: Sustainable Cities and Communities</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="cb-landing">
 
-<nav class="navbar navbar-expand-lg cb-navbar">
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg cb-navbar" id="home">
   <div class="container">
-    <a class="cb-brand" href="#">
+    <a class="cb-brand" href="#home">
       <span class="cb-logo" aria-hidden="true">
         <i class="bi bi-trash3-fill"></i>
       </span>
@@ -25,26 +27,26 @@
 
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#cbNav"
-            aria-controls="cbNav" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="cbNav" aria-expanded="false" aria-label="Buka navigasi">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="cbNav">
       <ul class="navbar-nav cb-nav ms-auto align-items-lg-center">
         <li class="nav-item">
-          <a class="nav-link active" href="#" aria-current="page">Home</a>
+          <a class="nav-link active" href="#home" aria-current="page">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Isu Kota</a>
+          <a class="nav-link" href="#isu-kota">Isu Kota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Komunitas</a>
+          <a class="nav-link" href="#komunitas">Komunitas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Rancangan</a>
+          <a class="nav-link" href="#rancangan">Rancangan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Kegiatan</a>
+          <a class="nav-link" href="#kegiatan">Kegiatan</a>
         </li>
         <li class="nav-item">
           <a class="cb-login" href="login.html">Login</a>
@@ -53,6 +55,494 @@
     </div>
   </div>
 </nav>
+
+<!-- ===== Hero ===== -->
+<!-- Ganti gradient placeholder .cb-landing-hero dengan foto kota asli (mis. bandung.jpg) lewat background-image di style.css. -->
+<header class="cb-landing-hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-9 col-xl-8">
+        <p class="cb-hero-kicker">SDG 11 · Kota Berkelanjutan</p>
+        <h1 class="cb-hero-title">SDG 11: Sustainable Cities and&nbsp;Communities</h1>
+        <p class="cb-hero-lead">
+          Jelajahi isu kota, ikuti kegiatan komunitas, dan berkontribusi untuk kota yang
+          inklusif, aman, tangguh, dan berkelanjutan melalui partisipasi warga.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#partisipasi" class="btn cb-btn cb-btn-accent">Explore Now</a>
+          <a href="#kegiatan" class="btn cb-btn cb-btn-outline">Find Activities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Values bar ===== -->
+<section class="cb-values" aria-label="Nilai kota">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-12 col-md-6">
+        <div class="cb-value">
+          <span class="cb-value-icon cb-value-icon-orange" aria-hidden="true">
+            <i class="bi bi-people-fill"></i>
+          </span>
+          <div>
+            <h2 class="cb-value-title">Inclusive</h2>
+            <p class="cb-value-text">ruang kota untuk semua</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="cb-value">
+          <span class="cb-value-icon cb-value-icon-yellow" aria-hidden="true">
+            <i class="bi bi-shield-check"></i>
+          </span>
+          <div>
+            <h2 class="cb-value-title">Resilient</h2>
+            <p class="cb-value-text">komunitas siap menghadapi bencana</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Intro ===== -->
+<section class="cb-intro" id="isu-kota">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10">
+        <h2 class="cb-intro-title">Green, accessible public spaces for&nbsp;everyone.</h2>
+        <p class="cb-intro-lead">
+          Dari taman kota hingga jalur pejalan kaki, setiap ruang dapat menjadi bagian
+          dari kota yang lebih berkelanjutan dan inklusif.
+        </p>
+      </div>
+    </div>
+
+    <!-- Ganti gradient placeholder video ini dengan <video> atau iframe video asli. -->
+    <div class="cb-video">
+      <div class="cb-video-media" aria-hidden="true"></div>
+      <button type="button" class="cb-play" aria-label="Putar video">
+        <i class="bi bi-play-fill"></i>
+      </button>
+      <div class="cb-video-caption">
+        <p class="cb-video-title">Ruang bersama, cerita kita.</p>
+        <span class="cb-video-sub">Tonton video</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How participation works ===== -->
+<section class="cb-steps-section" id="partisipasi">
+  <div class="container">
+    <p class="cb-label">Small steps. Real change.</p>
+    <h2 class="cb-section-title">How Participation Works</h2>
+
+    <div class="row g-4 mt-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-step">
+          <span class="cb-step-num">1</span>
+          <h3 class="cb-step-title">Explore Issues</h3>
+          <p class="cb-step-text">
+            Temukan isu lingkungan yang paling relevan dengan lingkungan Anda.
+          </p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-step">
+          <span class="cb-step-num">2</span>
+          <h3 class="cb-step-title">Join Community Activities</h3>
+          <p class="cb-step-text">
+            Bergabung dengan kegiatan lokal seperti kerja bakti, penanaman ruang,
+            dan diskusi komunitas.
+          </p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-step">
+          <span class="cb-step-num">3</span>
+          <h3 class="cb-step-title">Track Contributions</h3>
+          <p class="cb-step-text">
+            Lihat perkembangan kegiatan, ruang yang dibuat, dan dampak partisipasi warga.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Dark green promise ===== -->
+<section class="cb-dark" id="rancangan">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-12 col-lg-5">
+        <p class="cb-label cb-label-yellow">Your voice matters</p>
+        <h2 class="cb-dark-title">Better cities start with participation.</h2>
+        <p class="cb-dark-lead">
+          Dari ruang publik yang hijau, transportasi berkelanjutan, sampai hunian yang layak,
+          kota yang inklusif lahir dari partisipasi warga.
+        </p>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <div class="d-flex flex-column gap-3">
+          <article class="cb-glass-card">
+            <span class="cb-glass-icon" aria-hidden="true"><i class="bi bi-tree-fill"></i></span>
+            <div>
+              <h3 class="cb-glass-title">Green Public Space</h3>
+              <p class="cb-glass-text">Ruang terbuka hijau yang aman, inklusif, dan dekat dari rumah.</p>
+            </div>
+          </article>
+          <article class="cb-glass-card">
+            <span class="cb-glass-icon" aria-hidden="true"><i class="bi bi-bus-front-fill"></i></span>
+            <div>
+              <h3 class="cb-glass-title">Sustainable Transport</h3>
+              <p class="cb-glass-text">Mobilitas yang sehat untuk semua, tanpa emisi.</p>
+            </div>
+          </article>
+          <article class="cb-glass-card">
+            <span class="cb-glass-icon" aria-hidden="true"><i class="bi bi-house-heart-fill"></i></span>
+            <div>
+              <h3 class="cb-glass-title">Decent Housing</h3>
+              <p class="cb-glass-text">Lingkungan pemukiman yang layak dan inklusif.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Learn together ===== -->
+<section class="cb-learn" id="komunitas">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-end justify-content-between gap-3">
+      <div>
+        <p class="cb-label">Understand the city you live in</p>
+        <h2 class="cb-section-title mb-0">Learn Together</h2>
+      </div>
+      <a href="#" class="cb-text-link">Jelajahi semua topik <i class="bi bi-arrow-right"></i></a>
+    </div>
+
+    <div class="row g-4 mt-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-learn-card">
+          <!-- Ganti gradient placeholder dengan foto ruang publik asli. -->
+          <div class="cb-learn-media cb-ph-park" aria-hidden="true"></div>
+          <div class="cb-learn-body">
+            <h3 class="cb-learn-title">
+              <i class="bi bi-tree" aria-hidden="true"></i> Public Space
+            </h3>
+            <p class="cb-learn-text">
+              Temukan ruang publik, taman, dan ruang yang membuat kota lebih nyaman
+              digunakan bersama.
+            </p>
+            <a href="#" class="cb-card-link">Pelajari lebih lanjut <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-learn-card">
+          <!-- Ganti gradient placeholder dengan foto transportasi asli. -->
+          <div class="cb-learn-media cb-ph-street" aria-hidden="true"></div>
+          <div class="cb-learn-body">
+            <h3 class="cb-learn-title">
+              <i class="bi bi-bus-front" aria-hidden="true"></i> Transport
+            </h3>
+            <p class="cb-learn-text">
+              Pelajari akses transportasi yang aman, terjangkau, dan berkelanjutan di kota Anda.
+            </p>
+            <a href="#" class="cb-card-link">Pelajari lebih lanjut <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-learn-card">
+          <!-- Ganti gradient placeholder dengan foto permukiman asli. -->
+          <div class="cb-learn-media cb-ph-home" aria-hidden="true"></div>
+          <div class="cb-learn-body">
+            <h3 class="cb-learn-title">
+              <i class="bi bi-house-door" aria-hidden="true"></i> Settlement
+            </h3>
+            <p class="cb-learn-text">
+              Melihat tantangan dan solusi hunian yang layak, aman, serta inklusif di kota.
+            </p>
+            <a href="#" class="cb-card-link">Pelajari lebih lanjut <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== What you can do ===== -->
+<section class="cb-do" id="aksi">
+  <div class="container">
+    <p class="cb-label">Turn your care into action</p>
+    <h2 class="cb-do-title">What You Can Do</h2>
+
+    <div class="row g-4 mt-3">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-do-card cb-do-card-beige">
+          <div class="cb-do-top">
+            <span class="cb-do-icon" aria-hidden="true"><i class="bi bi-search"></i></span>
+            <i class="bi bi-arrow-up-right cb-do-arrow" aria-hidden="true"></i>
+          </div>
+          <div class="cb-do-bottom">
+            <h3 class="cb-do-card-title">Telusuri Masalah</h3>
+            <p class="cb-do-text">
+              Temukan isu lingkungan yang paling relevan dengan lingkungan Anda.
+            </p>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-do-card cb-do-card-sky">
+          <div class="cb-do-top">
+            <span class="cb-do-icon" aria-hidden="true"><i class="bi bi-people"></i></span>
+            <i class="bi bi-arrow-up-right cb-do-arrow" aria-hidden="true"></i>
+          </div>
+          <div class="cb-do-bottom">
+            <h3 class="cb-do-card-title">Ikuti Kegiatan</h3>
+            <p class="cb-do-text">
+              Bergabung dengan kegiatan lokal seperti kerja bakti, penanaman ruang,
+              dan diskusi komunitas.
+            </p>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="cb-do-card cb-do-card-green">
+          <div class="cb-do-top">
+            <span class="cb-do-icon" aria-hidden="true"><i class="bi bi-bar-chart-line"></i></span>
+            <i class="bi bi-arrow-up-right cb-do-arrow" aria-hidden="true"></i>
+          </div>
+          <div class="cb-do-bottom">
+            <h3 class="cb-do-card-title">Periksa Kontribusi</h3>
+            <p class="cb-do-text">
+              Lihat perkembangan kegiatan, ruang yang dibuat, dan dampak partisipasi warga.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="cb-chips">
+      <a href="#" class="cb-chip"><i class="bi bi-tree" aria-hidden="true"></i> Public Space</a>
+      <a href="#" class="cb-chip"><i class="bi bi-bus-front" aria-hidden="true"></i> Transport</a>
+      <a href="#" class="cb-chip"><i class="bi bi-house-door" aria-hidden="true"></i> Settlement</a>
+      <a href="#" class="cb-chip"><i class="bi bi-recycle" aria-hidden="true"></i> Environmental Management</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Find community activities ===== -->
+<section class="cb-activities" id="kegiatan">
+  <div class="container">
+    <p class="cb-label">Good things happen close to home</p>
+    <h2 class="cb-section-title">Find Community Activities</h2>
+    <p class="cb-activities-lead">
+      Temukan kegiatan komunitas, ruang publik, dan kegiatan lingkungan terdekat dari lokasi Anda.
+    </p>
+
+    <div class="row g-4 align-items-stretch mt-2">
+      <div class="col-12 col-lg-4">
+        <div class="cb-filter-panel">
+          <p class="cb-filter-label">My Location</p>
+
+          <label for="location" class="form-label cb-field-label">Lokasi</label>
+          <select class="form-select cb-select" id="location">
+            <option selected>Bandung, Jawa Barat</option>
+            <option>Jakarta, DKI Jakarta</option>
+            <option>Surabaya, Jawa Timur</option>
+            <option>Yogyakarta, DI Yogyakarta</option>
+          </select>
+
+          <label for="activitySearch" class="form-label cb-field-label">Cari kegiatan</label>
+          <div class="cb-search-field">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" class="form-control cb-search-input" id="activitySearch"
+                   placeholder="Search activities...">
+          </div>
+
+          <button type="button" class="btn cb-btn cb-btn-forest w-100">
+            Search <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </button>
+
+          <p class="cb-filter-hint">Atau cari berdasarkan tema:</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#" class="cb-tag">Ruang publik</a>
+            <a href="#" class="cb-tag">Lingkungan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-8">
+        <!-- Ganti placeholder peta ini dengan embed peta asli (mis. Google Maps / Leaflet). -->
+        <div class="cb-map">
+          <span class="cb-map-label">Bandung</span>
+          <span class="cb-map-pin cb-map-pin-1" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+          <span class="cb-map-pin cb-map-pin-2" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+          <span class="cb-map-pin cb-map-pin-3" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+
+          <article class="cb-activity-card">
+            <div class="cb-activity-thumb" aria-hidden="true"></div>
+            <div>
+              <h3 class="cb-activity-title">Berkebun bersama warga</h3>
+              <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Partner categories ===== -->
+<section class="cb-partners">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-12 col-lg-4">
+        <h2 class="cb-partners-title">Partner Categories</h2>
+        <p class="cb-partners-text mb-0">Bersama membangun kota yang lebih baik.</p>
+      </div>
+      <div class="col-12 col-lg-8">
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <div class="cb-partner-box">
+              <i class="bi bi-bank" aria-hidden="true"></i>
+              <span>Government</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="cb-partner-box">
+              <i class="bi bi-people" aria-hidden="true"></i>
+              <span>Community</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="cb-partner-box">
+              <i class="bi bi-mortarboard" aria-hidden="true"></i>
+              <span>School</span>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="cb-partner-box">
+              <i class="bi bi-diagram-3" aria-hidden="true"></i>
+              <span>Organization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="cb-faq" id="faq">
+  <div class="container">
+    <p class="cb-label">A little more clarity</p>
+    <h2 class="cb-section-title">Frequently Asked Questions</h2>
+
+    <div class="accordion cb-accordion mt-4" id="faqAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+            Apa yang dimaksud dengan partisipasi warga?
+          </button>
+        </h3>
+        <div id="faqCollapse1" class="accordion-collapse collapse show"
+             aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Partisipasi warga berarti keterlibatan warga dalam merancang kota yang inklusif,
+            aman, dan berkelanjutan melalui kegiatan komunitas dan pengelolaan lingkungan.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+            Apa yang ada di halaman kegiatan?
+          </button>
+        </h3>
+        <div id="faqCollapse2" class="accordion-collapse collapse"
+             aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Halaman kegiatan berisi informasi kegiatan, lokasi, waktu, dan cara bergabung.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="faqHeading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+            Apakah kegiatan ini untuk semua warga?
+          </button>
+        </h3>
+        <div id="faqCollapse3" class="accordion-collapse collapse"
+             aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Ya, kegiatan ini dirancang untuk semua warga, termasuk warga dengan kebutuhan
+            khusus dan kelompok rentan.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="cb-site-footer">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-12 col-lg-5">
+        <a class="cb-brand cb-brand-footer" href="#home">
+          <span class="cb-logo" aria-hidden="true">
+            <i class="bi bi-trash3-fill"></i>
+          </span>
+          CityBin
+        </a>
+        <p class="cb-footer-text">
+          Konsep rancangan SDG 11: Sustainable Cities and Communities. Kami percaya kota
+          yang lebih baik dimulai dari partisipasi warga.
+        </p>
+        <a href="#kegiatan" class="btn cb-btn cb-btn-white">Kegiatan</a>
+      </div>
+
+      <div class="col-6 col-lg-3 offset-lg-1">
+        <h2 class="cb-footer-heading">ISU KOTA</h2>
+        <ul class="cb-footer-links">
+          <li><a href="#komunitas">Public Space</a></li>
+          <li><a href="#komunitas">Transport</a></li>
+          <li><a href="#komunitas">Settlement</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <h2 class="cb-footer-heading">KOMUNITAS</h2>
+        <ul class="cb-footer-links">
+          <li><a href="#kegiatan">Activities</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#rancangan">Design</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cb-footer-bottom">
+      <p>© 2026 Konsep SDG 11. All rights reserved.</p>
+      <div class="cb-footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
