@@ -18,7 +18,7 @@ Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dal
 
 **FItur**
 
-Sitemap: 
+Sitemap: https://viewer.diagrams.net/
 
 **Struktur Project** 
 
