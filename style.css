@@ -103,15 +103,16 @@ body {
 
 .cb-main {
   flex: 1;
-  padding: 3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 /* Hero card */
 .cb-hero {
   position: relative;
-  border-radius: 1.25rem;
   overflow: hidden;
-  min-height: 640px;
+  min-height: 100vh;
   background:
     linear-gradient(180deg, rgba(1,11,28,.25) 0%, rgba(1,11,28,.55) 100%),
     url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=1200") center/cover;
@@ -164,7 +165,7 @@ body {
 .cb-form-wrap {
   max-width: 386px;
   margin: 0 auto;
-  padding-top: 2rem;
+  padding-top: 0;
 }
 .cb-form-wrap .cb-eyebrow { color: #5a7a3a; }
 .cb-form-wrap h2 {
@@ -185,7 +186,7 @@ body {
   margin-bottom: 0.4rem;
 }
 .cb-login-page .form-control {
-  border: 1px solid var(--cb-border);
+  border: 1px solid var(--cb-hairline);
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   background: #fff;
@@ -195,6 +196,7 @@ body {
   border-color: var(--cb-ink);
   box-shadow: 0 0 0 3px rgba(18,55,42,.12);
 }
+
 .cb-password { position: relative; }
 .cb-password .form-control { padding-right: 4.5rem; }
 .cb-toggle {
