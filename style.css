@@ -62,8 +62,8 @@ body {
 
 /* Login CTA */
 .cb-login {
-  color: var(--cb-green);
-  border: 1px solid var(--cb-green);
+  color: #D7F278;
+  border: 1px solid #D7F278;
   border-radius: 0.5rem;
   font-size: 1rem;
   padding: 0.55rem 1.4rem;
@@ -71,10 +71,19 @@ body {
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
-.cb-login:hover,
+.cb-login.active {
+  background-color: #D7F278;
+  color: #000000;
+  border-color: #D7F278;
+}
+
+.cb-login:hover{
+  background: #D7F278;
+  color: #000000;
+}
 .cb-login:focus-visible {
-  background: var(--cb-green);
-  color: var(--cb-bg);
+  background: #D7F278;
+  color: #000000;
 }
 
 /* Mobile menu */
