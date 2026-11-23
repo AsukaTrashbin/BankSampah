@@ -13,6 +13,10 @@ body {
 }
 
 .cb-navbar {
+  position : sticky;
+  top: 0;
+  z-index: 1020;
+
   background: var(--cb-bg);
   padding-block: 1.25rem;
 }
