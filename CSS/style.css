@@ -1431,3 +1431,402 @@ body {
     font-size: 0.78rem;
   }
 }
+
+/* =====================================================================
+   Navbar: animasi hover, indikator geser, mode ringkas saat scroll
+   ===================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+.cb-navbar {
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cb-navbar.is-scrolled {
+  padding-block: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.cb-brand .cb-logo-img,
+.cb-brand .cb-logo img {
+  transition: transform 0.3s ease;
+}
+
+.cb-brand:hover .cb-logo-img,
+.cb-brand:hover .cb-logo img {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.cb-nav {
+  position: relative;
+}
+
+.cb-nav .nav-link {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.cb-nav .nav-link:hover,
+.cb-nav .nav-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+/* Garis bawah: tumbuh dari kiri saat hover (cadangan untuk mobile / tanpa JS) */
+.cb-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 0.1rem;
+  height: 2px;
+  background: var(--cb-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
+}
+
+.cb-nav .nav-link:hover::after,
+.cb-nav .nav-link:focus-visible::after,
+.cb-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Indikator yang bergeser mengikuti link aktif / link yang di-hover */
+.cb-nav-indicator {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--cb-accent);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    width 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.25s ease;
+}
+
+.cb-nav-indicator.no-anim {
+  transition: none;
+}
+
+@media (min-width: 992px) {
+  .cb-nav-indicator {
+    display: block;
+  }
+
+  .cb-nav.cb-has-indicator .nav-link::after {
+    display: none;
+  }
+}
+
+/* Tombol Login: sedikit terangkat saat hover */
+.cb-login {
+  display: inline-block;
+  line-height: 1.25;
+  transition: background 0.2s ease, color 0.2s ease,
+    transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cb-login:hover,
+.cb-login:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* =====================================================================
+   Feedback
+   ===================================================================== */
+.cb-feedback {
+  padding: var(--cb-section-y) 0;
+  background: var(--cb-paper-mint);
+}
+
+.cb-feedback .cb-section-title {
+  margin-top: 0.35rem;
+}
+
+.cb-feedback-lead {
+  max-width: 28rem;
+  margin: 0.9rem 0 1.5rem;
+  color: var(--cb-body-ink);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.cb-feedback-form {
+  padding: 1.4rem;
+  border-radius: var(--cb-radius-md);
+  background: var(--cb-paper);
+  box-shadow: 0 10px 30px rgba(20, 48, 31, 0.06);
+}
+
+.cb-input {
+  padding: 0.65rem 0.8rem;
+  border-color: var(--cb-hairline);
+  border-radius: var(--cb-radius-xs);
+  font-size: 0.85rem;
+}
+
+.cb-input:focus {
+  border-color: var(--cb-forest);
+  box-shadow: 0 0 0 3px rgba(25, 75, 50, 0.12);
+}
+
+.cb-select-flush {
+  margin-bottom: 0;
+}
+
+.cb-feedback textarea.cb-input {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.cb-feedback .form-control.is-invalid,
+.cb-feedback .form-select.is-invalid {
+  border-color: #c2410c;
+  background-image: none;
+}
+
+.cb-feedback .form-select.is-invalid {
+  background-image: var(--bs-form-select-bg-img);
+}
+
+.cb-feedback .form-control.is-invalid:focus,
+.cb-feedback .form-select.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.14);
+}
+
+.cb-fb-counter {
+  margin-top: 0.35rem;
+  color: #8a958c;
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+.cb-fb-alert {
+  margin-bottom: 1rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: var(--cb-radius-xs);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.cb-fb-alert-success {
+  border-color: #cfd8c4;
+  background: #e6efdb;
+  color: var(--cb-forest-dark);
+}
+
+.cb-fb-alert-error {
+  border-color: #f3cfa4;
+  background: #fdf0e3;
+  color: #8a3b00;
+}
+
+.cb-fb-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cb-fb-title {
+  margin: 0;
+  color: var(--cb-heading-ink);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.cb-fb-count {
+  display: grid;
+  place-items: center;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  padding: 0 0.5rem;
+  border-radius: var(--cb-radius-pill);
+  background: var(--cb-forest);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.cb-fb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-height: 520px;
+  padding-right: 0.25rem;
+  overflow-y: auto;
+}
+
+.cb-fb-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 2.5rem 1rem;
+  border: 1px dashed var(--cb-soft-line);
+  border-radius: var(--cb-radius-md);
+  background: var(--cb-paper);
+  color: var(--cb-body-ink);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.cb-fb-empty i {
+  color: var(--cb-forest);
+  font-size: 1.6rem;
+}
+
+.cb-fb-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--cb-hairline);
+  border-radius: var(--cb-radius-sm);
+  background: var(--cb-paper);
+  animation: cb-fb-in 0.35s ease both;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cb-fb-item:hover {
+  box-shadow: var(--cb-shadow-soft);
+  transform: translateY(-2px);
+}
+
+@keyframes cb-fb-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.cb-fb-avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--cb-forest);
+  color: var(--cb-yellow);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.cb-fb-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cb-fb-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.cb-fb-name {
+  color: var(--cb-heading-ink);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.cb-fb-badge {
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--cb-radius-pill);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.cb-fb-badge-pelajar {
+  background: #fff4d6;
+  color: #8a5a00;
+}
+
+.cb-fb-badge-mahasiswa {
+  background: var(--cb-card-green);
+  color: var(--cb-forest);
+}
+
+.cb-fb-badge-umum {
+  background: var(--cb-card-sky);
+  color: #3c5d63;
+}
+
+.cb-fb-time {
+  margin-left: auto;
+  color: #8a958c;
+  font-size: 0.72rem;
+}
+
+.cb-fb-text {
+  margin: 0;
+  color: var(--cb-body-ink);
+  font-size: 0.86rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.cb-fb-remove {
+  flex-shrink: 0;
+  padding: 0.3rem 0.4rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: none;
+  color: #a3ada5;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cb-fb-remove:hover,
+.cb-fb-remove:focus-visible {
+  background: #fdf0e3;
+  color: #c2410c;
+}
+
+.cb-fb-note {
+  margin: 0.85rem 0 0;
+  color: #8a958c;
+  font-size: 0.72rem;
+}
+
+/* Hormati preferensi "kurangi gerakan" */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .cb-navbar,
+  .cb-nav .nav-link,
+  .cb-nav .nav-link::after,
+  .cb-nav-indicator,
+  .cb-login,
+  .cb-brand .cb-logo-img,
+  .cb-brand .cb-logo img,
+  .cb-fb-item {
+    animation: none;
+    transition: none;
+  }
+
+  .cb-nav .nav-link:hover,
+  .cb-nav .nav-link:focus-visible,
+  .cb-login:hover,
+  .cb-login:focus-visible,
+  .cb-fb-item:hover {
+    transform: none;
+  }
+}

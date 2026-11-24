@@ -148,5 +148,5 @@
 
   window.citybinLogout = logout;
   window.citybin = window.citybin || {};
-  window.citybin.logout = logout;
+  window.citybin.logout = logout; 
 })();

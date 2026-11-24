@@ -20,7 +20,7 @@
   <div class="container">
     <a class="cb-brand" href="#home">
       <span class="cb-logo" aria-hidden="true">
-        <img src="Assets/img/Logo.jpg" alt="Logo" width="50"><i>
+        <img src="Assets/img/Logo.jpg" alt="Logo" width="50">
       </span>
       CityBin
     </a>
@@ -40,13 +40,16 @@
           <a class="nav-link" href="#isu-kota">Isu Kota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#komunitas">Komunitas</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#rancangan">Rancangan</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#komunitas">Komunitas</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#kegiatan">Kegiatan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#feedback">Feedback</a>
         </li>
         <li class="nav-item">
           <a class="cb-login" href="login.html">Login</a>
@@ -497,6 +500,67 @@
   </div>
 </section>
 
+<!-- ===== Feedback ===== -->
+<section class="cb-feedback" id="feedback">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-12 col-lg-5">
+        <p class="cb-label">Tell us what you think</p>
+        <h2 class="cb-section-title">Feedback</h2>
+        <p class="cb-feedback-lead">
+          Bagikan masukan, ide, atau pengalaman Anda tentang pengelolaan sampah dan
+          kota yang lebih baik. Setiap komentar membantu CityBin berkembang.
+        </p>
+
+        <form class="cb-feedback-form" id="feedbackForm" novalidate>
+          <div class="mb-3">
+            <label for="fbName" class="form-label cb-field-label">Nama</label>
+            <input type="text" class="form-control cb-input" id="fbName" name="name"
+                   placeholder="Nama Anda" maxlength="40" autocomplete="name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="fbStatus" class="form-label cb-field-label">Status</label>
+            <select class="form-select cb-select cb-select-flush" id="fbStatus" name="status" required>
+              <option value="" selected disabled>Pilih status Anda</option>
+              <option value="Pelajar">Pelajar</option>
+              <option value="Mahasiswa">Mahasiswa</option>
+              <option value="Umum">Umum</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="fbMessage" class="form-label cb-field-label">Komentar</label>
+            <textarea class="form-control cb-input" id="fbMessage" name="message" rows="4"
+                      placeholder="Tulis feedback Anda di sini..." maxlength="300" required></textarea>
+            <div class="cb-fb-counter" id="fbCounter" aria-live="off">0 / 300</div>
+          </div>
+
+          <div id="fbAlert" class="cb-fb-alert d-none" role="alert"></div>
+
+          <button type="submit" class="btn cb-btn cb-btn-forest w-100">
+            Kirim Feedback <i class="bi bi-send" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <div class="cb-fb-head">
+          <h3 class="cb-fb-title">Komentar Terbaru</h3>
+          <span class="cb-fb-count" id="fbCount">0</span>
+        </div>
+        <div class="cb-fb-list" id="fbList" aria-live="polite">
+          <p class="cb-fb-empty" id="fbEmpty">
+            <i class="bi bi-chat-square-text" aria-hidden="true"></i>
+            Belum ada komentar. Jadilah yang pertama memberikan feedback!
+          </p>
+        </div>
+        <p class="cb-fb-note">Komentar disimpan di browser Anda pada perangkat ini.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== Footer ===== -->
 <footer class="cb-site-footer">
   <div class="container">
@@ -529,6 +593,7 @@
         <ul class="cb-footer-links">
           <li><a href="#kegiatan">Activities</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#feedback">Feedback</a></li>
           <li><a href="#rancangan">Design</a></li>
         </ul>
       </div>
@@ -545,5 +610,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="navbar.js"></script>
+<script src="feedback.js"></script>
 </body>
 </html>
