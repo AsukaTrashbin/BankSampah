@@ -585,9 +585,40 @@
       <div class="modal-body">
         <p class="cb-calculator-rate">
           <i class="bi bi-info-circle" aria-hidden="true"></i>
-          Tarif simulasi: <strong>Rp 2.000/kg</strong>
+          Tarif simulasi (sama untuk semua jenis): <strong>Rp 2.000/kg</strong>
         </p>
         <form class="cb-calculator-card" id="wasteCalcForm" novalidate>
+          <fieldset class="cb-waste-type-fieldset">
+            <legend class="form-label cb-field-label">Jenis sampah</legend>
+            <div class="cb-waste-type-grid">
+              <div class="cb-waste-type-option">
+                <input class="visually-hidden" type="radio" id="wasteTypeOrganic" name="wasteType"
+                       value="organik" data-label="Organik" aria-describedby="wasteTypeHelp wasteCalcError" required>
+                <label for="wasteTypeOrganic">
+                  <i class="bi bi-tree-fill" aria-hidden="true"></i>
+                  <span>Organik</span>
+                </label>
+              </div>
+              <div class="cb-waste-type-option">
+                <input class="visually-hidden" type="radio" id="wasteTypeInorganic" name="wasteType"
+                       value="anorganik" data-label="Anorganik" aria-describedby="wasteTypeHelp wasteCalcError" required>
+                <label for="wasteTypeInorganic">
+                  <i class="bi bi-recycle" aria-hidden="true"></i>
+                  <span>Anorganik</span>
+                </label>
+              </div>
+              <div class="cb-waste-type-option">
+                <input class="visually-hidden" type="radio" id="wasteTypeB3" name="wasteType"
+                       value="b3" data-label="B3" aria-describedby="wasteTypeHelp wasteCalcError" required>
+                <label for="wasteTypeB3">
+                  <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+                  <span>B3</span>
+                </label>
+              </div>
+            </div>
+            <small class="cb-calc-help" id="wasteTypeHelp">Pilih Organik, Anorganik, atau B3 (Bahan Berbahaya dan Beracun).</small>
+          </fieldset>
+
           <label for="wasteWeight" class="form-label cb-field-label">Berat sampah</label>
           <div class="cb-calc-input">
             <input type="number" class="form-control" id="wasteWeight" name="weight"
@@ -605,11 +636,14 @@
           <div class="cb-calculator-result" aria-live="polite">
             <span>Estimasi nilai ekonomis</span>
             <output id="wasteCalcValue" for="wasteWeight">—</output>
-            <p id="wasteCalcNote">Masukkan berat untuk mulai menghitung.</p>
+            <p id="wasteCalcNote">Pilih jenis dan masukkan berat untuk mulai menghitung.</p>
           </div>
+          <p class="cb-calc-safety-note d-none" id="wasteB3Note" role="note">
+            Sampah B3 perlu diserahkan kepada pengelola berwenang. Nilai di atas hanya simulasi.
+          </p>
         </form>
         <p class="cb-calculator-disclaimer">
-          Nilai ini hanya simulasi menggunakan tarif tetap Rp 2.000/kg. Harga sebenarnya dapat berbeda menurut jenis sampah dan kebijakan bank sampah.
+          Nilai ini hanya simulasi menggunakan tarif tetap Rp 2.000/kg untuk semua kategori. Harga sebenarnya dapat berbeda menurut jenis sampah dan kebijakan bank sampah.
         </p>
       </div>
     </div>

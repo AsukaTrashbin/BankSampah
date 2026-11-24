@@ -1172,6 +1172,90 @@ body {
   font-weight: 600;
 }
 
+.cb-waste-type-fieldset {
+  min-width: 0;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.cb-waste-type-fieldset legend {
+  float: none;
+  width: auto;
+}
+
+.cb-waste-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.cb-waste-type-option {
+  min-width: 0;
+}
+
+.cb-waste-type-option label {
+  display: flex;
+  min-height: 5.2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.3rem;
+  border: 1px solid var(--cb-hairline);
+  border-radius: 0.7rem;
+  background: #fff;
+  color: var(--cb-body-ink);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.cb-waste-type-option label i {
+  color: var(--cb-forest);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.cb-waste-type-option input:checked + label {
+  border-color: var(--cb-forest);
+  background: var(--cb-paper-mint);
+  color: var(--cb-forest-dark);
+  box-shadow: inset 0 0 0 1px var(--cb-forest);
+}
+
+.cb-waste-type-option input[value="anorganik"] + label i {
+  color: #26717a;
+}
+
+.cb-waste-type-option input[value="anorganik"]:checked + label {
+  border-color: #26717a;
+  background: #edf7f6;
+  box-shadow: inset 0 0 0 1px #26717a;
+}
+
+.cb-waste-type-option input[value="b3"] + label i {
+  color: #b54708;
+}
+
+.cb-waste-type-option input[value="b3"]:checked + label {
+  border-color: #b54708;
+  background: #fff4e5;
+  color: #8a3c09;
+  box-shadow: inset 0 0 0 1px #b54708;
+}
+
+.cb-waste-type-option input:focus-visible + label {
+  outline: 3px solid rgba(25, 75, 50, 0.25);
+  outline-offset: 2px;
+}
+
+.cb-waste-type-option input[aria-invalid="true"] + label {
+  border-color: #b42318;
+}
+
 .cb-calc-input {
   display: flex;
   overflow: hidden;
@@ -1249,6 +1333,16 @@ body {
   margin: 0;
   color: #78847b;
   font-size: 0.76rem;
+}
+
+.cb-calc-safety-note {
+  margin: 0.8rem 0 0;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.55rem;
+  background: #fff4e5;
+  color: #8a3c09;
+  font-size: 0.76rem;
+  line-height: 1.55;
 }
 
 .cb-calculator-disclaimer {
