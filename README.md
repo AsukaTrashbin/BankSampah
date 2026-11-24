@@ -17,9 +17,12 @@ Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dal
 4. JavaScript
 
 **FItur**
+1.
 
-Sitemap: https://app.diagrams.net/
+Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/user-attachments/assets/446d717e-692c-4d9d-ba09-7ece815b46a0" />
+
 
 **Struktur Project** 
+
 
 **Informasi Pendukung**
