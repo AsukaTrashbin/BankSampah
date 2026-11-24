@@ -559,8 +559,62 @@
         <p class="cb-fb-note">Komentar disimpan di browser Anda pada perangkat ini.</p>
       </div>
     </div>
+    <div class="cb-feedback-calculator">
+      <span class="cb-feedback-calculator-label">Estimasi nilai sampah</span>
+      <button type="button" class="cb-feedback-calculator-button"
+              data-bs-toggle="modal" data-bs-target="#wasteCalcModal"
+              aria-label="Buka kalkulator estimasi nilai sampah" title="Kalkulator nilai sampah">
+        <i class="bi bi-calculator" aria-hidden="true"></i>
+      </button>
+    </div>
   </div>
 </section>
+
+<!-- ===== Waste value calculator popup ===== -->
+<div class="modal fade cb-calc-modal" id="wasteCalcModal" tabindex="-1"
+     aria-labelledby="wasteCalcModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <p class="cb-label mb-1">Turn waste into value</p>
+          <h2 class="modal-title fs-4" id="wasteCalcModalLabel">Kalkulator Estimasi Nilai Sampah</h2>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <p class="cb-calculator-rate">
+          <i class="bi bi-info-circle" aria-hidden="true"></i>
+          Tarif simulasi: <strong>Rp 2.000/kg</strong>
+        </p>
+        <form class="cb-calculator-card" id="wasteCalcForm" novalidate>
+          <label for="wasteWeight" class="form-label cb-field-label">Berat sampah</label>
+          <div class="cb-calc-input">
+            <input type="number" class="form-control" id="wasteWeight" name="weight"
+                   min="0.01" step="0.01" inputmode="decimal" placeholder="Contoh: 2.5"
+                   aria-describedby="wasteWeightHelp wasteCalcError" required>
+            <span>kg</span>
+          </div>
+          <small class="cb-calc-help" id="wasteWeightHelp">Masukkan berat dalam kilogram.</small>
+          <p class="cb-calculator-error d-none" id="wasteCalcError" role="alert"></p>
+
+          <button type="submit" class="btn cb-btn cb-btn-forest w-100">
+            Hitung estimasi <i class="bi bi-calculator" aria-hidden="true"></i>
+          </button>
+
+          <div class="cb-calculator-result" aria-live="polite">
+            <span>Estimasi nilai ekonomis</span>
+            <output id="wasteCalcValue" for="wasteWeight">—</output>
+            <p id="wasteCalcNote">Masukkan berat untuk mulai menghitung.</p>
+          </div>
+        </form>
+        <p class="cb-calculator-disclaimer">
+          Nilai ini hanya simulasi menggunakan tarif tetap Rp 2.000/kg. Harga sebenarnya dapat berbeda menurut jenis sampah dan kebijakan bank sampah.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ===== Footer ===== -->
 <footer class="cb-site-footer">
@@ -612,5 +666,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="JavaScript/script.js"></script>
+<script src="JavaScript/waste-calculator.js"></script>
 </body>
 </html>
