@@ -1,0 +1,52 @@
+{
+  "locations": [
+    {
+      "id": "bandung-taman-lansia",
+      "name": "Taman Lansia",
+      "cityId": "bandung",
+      "city": "Bandung",
+      "region": "Jawa Barat",
+      "area": "Cibeunying Kaler",
+      "type": "Ruang publik",
+      "lat": -6.8975989,
+      "lng": 107.6312048,
+      "sourceUrl": "https://www.openstreetmap.org/way/1161291496"
+    },
+    {
+      "id": "jakarta-taman-suropati",
+      "name": "Taman Suropati",
+      "cityId": "jakarta",
+      "city": "Jakarta",
+      "region": "DKI Jakarta",
+      "area": "Menteng, Jakarta Pusat",
+      "type": "Ruang publik",
+      "lat": -6.1994133,
+      "lng": 106.8326256,
+      "sourceUrl": "https://www.openstreetmap.org/way/28193017"
+    },
+    {
+      "id": "surabaya-taman-bungkul",
+      "name": "Taman Bungkul",
+      "cityId": "surabaya",
+      "city": "Surabaya",
+      "region": "Jawa Timur",
+      "area": "Darmo, Wonokromo",
+      "type": "Ruang publik",
+      "lat": -7.2912247,
+      "lng": 112.7398717,
+      "sourceUrl": "https://www.openstreetmap.org/way/284939382"
+    },
+    {
+      "id": "yogyakarta-alun-alun-kidul",
+      "name": "Alun Alun Kidul",
+      "cityId": "yogyakarta",
+      "city": "Yogyakarta",
+      "region": "DI Yogyakarta",
+      "area": "Patehan, Kraton",
+      "type": "Ruang publik",
+      "lat": -7.8118414,
+      "lng": 110.3632035,
+      "sourceUrl": "https://www.openstreetmap.org/way/550611994"
+    }
+  ]
+}

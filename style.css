@@ -1476,96 +1476,99 @@ body {
 
 .cb-map {
   position: relative;
-  height: 100%;
-  min-height: 420px;
+  width: 100%;
+  height: 420px;
   overflow: hidden;
   border-radius: var(--cb-radius-md);
-  background-color: #e9efdf;
-  /* Gradient placeholder peta — ganti dengan embed peta asli. */
-  background-image:
-    linear-gradient(34deg, transparent 46%, rgba(255, 255, 255, 0.9) 46%, rgba(255, 255, 255, 0.9) 48%, transparent 48%),
-    linear-gradient(-22deg, transparent 60%, rgba(255, 255, 255, 0.75) 60%, rgba(255, 255, 255, 0.75) 62%, transparent 62%),
-    linear-gradient(90deg, rgba(206, 222, 190, 0.7) 0 1px, transparent 1px 120px),
-    linear-gradient(0deg, rgba(206, 222, 190, 0.7) 0 1px, transparent 1px 120px),
-    linear-gradient(135deg, #eef3e2 0%, #dfe9d4 100%);
-  background-size: auto, auto, 120px 120px, 120px 120px, auto;
+  background: #e9efdf;
 }
 
-.cb-map-label {
+.cb-map.leaflet-container {
+  font: inherit;
+}
+
+.cb-map-error {
   position: absolute;
-  top: 8%;
-  left: 50%;
-  color: rgba(20, 48, 31, 0.3);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
-
-.cb-map-pin {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  width: 2.35rem;
-  height: 2.35rem;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  background: var(--cb-forest);
-  color: #fff;
-  font-size: 1rem;
-  box-shadow: 0 6px 16px rgba(18, 58, 39, 0.25);
-}
-
-.cb-map-pin-1 {
-  top: 42%;
-  left: 22%;
-}
-
-.cb-map-pin-2 {
-  top: 30%;
-  left: 58%;
-}
-
-.cb-map-pin-3 {
-  top: 58%;
-  left: 82%;
-}
-
-.cb-activity-card {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 320px;
-  padding: 0.6rem 0.85rem 0.6rem 0.6rem;
-  border-radius: 0.7rem;
+  z-index: 1000;
+  top: 0.75rem;
+  left: 0.75rem;
+  max-width: calc(100% - 1.5rem);
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--cb-radius-xs);
   background: #fff;
+  color: #842029;
+  font-size: 0.75rem;
   box-shadow: var(--cb-shadow-card);
 }
 
-.cb-activity-thumb {
-  flex-shrink: 0;
-  width: 3.3rem;
-  height: 3.3rem;
-  border-radius: 0.45rem;
-  /* Gradient placeholder thumbnail kegiatan. */
-  background-image: linear-gradient(135deg, #d6b26a 0%, #7fa05c 55%, #4e7a45 100%);
+.cb-map-status {
+  margin: 0.65rem 0 0;
+  color: var(--cb-body-ink);
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
-.cb-activity-title {
-  margin: 0 0 0.15rem;
+.cb-location-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.cb-location-card {
+  min-width: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--cb-hairline);
+  border-radius: var(--cb-radius-xs);
+  background: var(--cb-paper);
+}
+
+.cb-location-card h3 {
+  margin: 0 0 0.35rem;
   color: var(--cb-heading-ink);
-  font-size: 0.84rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.cb-location-card p {
+  margin: 0 0 0.35rem;
+  color: var(--cb-body-ink);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.cb-location-card button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  text-align: left;
+}
+
+.cb-location-card button:hover {
+  color: var(--cb-forest);
+  text-decoration: underline;
+}
+
+.cb-location-source {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--cb-forest);
+  font-size: 0.74rem;
   font-weight: 600;
 }
 
-.cb-activity-meta {
+.cb-location-empty {
+  grid-column: 1 / -1;
   margin: 0;
-  color: #8a958c;
-  font-size: 0.7rem;
+  padding: 1rem;
+  border-radius: var(--cb-radius-xs);
+  background: var(--cb-paper);
+  color: var(--cb-body-ink);
+  font-size: 0.85rem;
 }
 
 /* Partners */
@@ -1765,7 +1768,7 @@ body {
   }
 
   .cb-map {
-    min-height: 360px;
+    height: 360px;
   }
 }
 
@@ -1776,12 +1779,6 @@ body {
 
   .cb-do-card {
     min-height: 205px;
-  }
-
-  .cb-activity-card {
-    right: 0.6rem;
-    left: 0.6rem;
-    max-width: none;
   }
 
   .cb-value-text {
