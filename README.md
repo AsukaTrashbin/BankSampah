@@ -27,3 +27,5 @@ Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/use
 
 
 **Informasi Pendukung**
+
+Website ini ditujukan kepada masyarakat umum yang ingin mengetahui informasi pengelolaan sampah, kepada pelajar dan mahasiswa yang ingin mempelajari pemilahan sampah, warga yang ingin menyetorkan sampah, dan masyarakat yang tertarik dengan produk daur ulang.
