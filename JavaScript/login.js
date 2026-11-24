@@ -8,7 +8,7 @@
 
   var MSG_REQUIRED = 'Email dan kata sandi wajib diisi.';
   var MSG_INVALID = 'Email atau kata sandi salah.';
-  var MSG_LOAD_FAILED = 'Gagal memuat data pengguna. Silakan coba lagi nanti.';
+  var MSG_LOAD_FAILED = 'Gagal memuat data akun. Pastikan situs dijalankan melalui server lokal, lalu coba lagi.';
 
   function clearStoredUser() {
     try {
@@ -100,10 +100,15 @@
           throw new Error('Format ' + USERS_URL + ' tidak valid: harus berupa array');
         }
 
+        var demoUsers = JSON.parse(localStorage.getItem('citybinDemoUsers') || '[]');
+        if (!Array.isArray(demoUsers)) {
+          throw new Error('Format data pendaftaran tidak valid');
+        }
+
         var passwordHash = await sha256Hex(password);
         var emailKey = email.toLowerCase();
 
-        var user = users.find(function (entry) {
+        var user = users.concat(demoUsers).find(function (entry) {
           return entry &&
             typeof entry.email === 'string' &&
             typeof entry.passwordHash === 'string' &&
@@ -144,6 +149,14 @@
 
     initPasswordToggle(form);
     initLoginForm(form);
+
+    if (new URLSearchParams(window.location.search).get('registered') === '1') {
+      var notice = document.getElementById('loginNotice');
+      if (notice) {
+        notice.textContent = 'Pendaftaran berhasil. Silakan login.';
+        notice.classList.remove('d-none');
+      }
+    }
   });
 
   window.citybinLogout = logout;

@@ -213,6 +213,12 @@ body {
   color: var(--cb-ink);
   margin: 0.6rem 0 0.75rem;
 }
+.cb-form-wrap h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--cb-ink);
+  margin: 0.6rem 0 0.75rem;
+}
 .cb-sub {
   color: var(--cb-muted);
   font-size: 0.95rem;
@@ -323,9 +329,56 @@ body {
 .cb-footer a:hover { color: var(--cb-ink); }
 
 @media (max-width: 991.98px) {
-  .cb-hero { min-height: 460px; }
-  .cb-hero h1 { font-size: 2.2rem; }
-  .cb-form-wrap { padding-top: 3rem; }
+  .cb-hero {
+    min-height: 0;
+    gap: 1.5rem;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  .cb-hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    margin-block: 0.75rem;
+  }
+  .cb-lead {
+    max-width: none;
+    margin: 0.8rem 0 0;
+    font-size: 0.95rem;
+  }
+  .cb-hero-card { padding: 1.2rem; }
+  .cb-hero-card h2 { font-size: 1.2rem; }
+  .cb-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+  }
+  .cb-form-wrap {
+    width: calc(100% - 2rem);
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    padding: 1.75rem 1.5rem;
+  }
+  .cb-form-wrap h1,
+  .cb-form-wrap h2 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+}
+
+@media (max-width: 575.98px) {
+  .cb-hero {
+    margin: 0.75rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+  .cb-hero-card { padding: 1.1rem; }
+  .cb-hero-card h2 { font-size: 1.1rem; }
+  .cb-form-wrap {
+    width: calc(100% - 1.5rem);
+    padding: 1.5rem 1.15rem;
+  }
+  .cb-form-wrap .d-flex.justify-content-between {
+    align-items: flex-start !important;
+    gap: 0.75rem;
+  }
+  .cb-form-wrap .form-check-label,
+  .cb-forgot { font-size: 0.78rem; }
 }
 
 :root {
@@ -1802,6 +1855,113 @@ html {
   margin: 0.85rem 0 0;
   color: #8a958c;
   font-size: 0.72rem;
+}
+
+/* Sign-up layout */
+.cb-auth-main {
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.cb-auth-main .container { max-width: 1320px; }
+.cb-auth-nav .cb-login { margin: 0; }
+.cb-signup-main .row { align-items: flex-start; }
+
+.cb-signup-form-wrap {
+  width: 100%;
+  max-width: 520px;
+  padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.cb-signup-form-wrap .cb-sub { margin-bottom: 1rem; }
+.cb-signup-form-wrap form .mb-3 { margin-bottom: 0.65rem !important; }
+.cb-signup-form-wrap .form-label { margin-bottom: 0.25rem; }
+.cb-signup-form-wrap .cb-signup { margin-top: 1rem; }
+.cb-signup-form-wrap .cb-back { margin-top: 0.75rem; }
+
+.cb-signup-note {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--cb-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.cb-signup-visual {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(560px, 72vh, 700px);
+  width: 100%;
+  max-width: 540px;
+  margin-inline: auto;
+  border-radius: 1.5rem;
+  background: #0a1024;
+  color: #fff;
+}
+
+.cb-signup-visual img {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cb-signup-visual::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(1, 11, 28, 0.08) 20%, rgba(1, 11, 28, 0.86) 100%);
+  content: "";
+}
+
+.cb-signup-visual-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.cb-signup-visual-label {
+  align-self: flex-start;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(1, 11, 28, 0.35);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.cb-signup-visual h2 {
+  max-width: 13ch;
+  margin: 0 0 0.85rem;
+  color: #fff;
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.cb-signup-visual p {
+  max-width: 36ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+}
+
+@media (max-width: 991.98px) {
+  .cb-signup-visual { display: none; }
+  .cb-signup-main {
+    align-items: flex-start;
+    padding: 1.25rem 0;
+  }
+  .cb-signup-form-wrap { margin: 0 auto 1.5rem; }
 }
 
 /* Hormati preferensi "kurangi gerakan" */
