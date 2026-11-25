@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital, wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body class="cb-landing">
 
@@ -384,15 +386,37 @@
       </div>
 
       <div class="col-12 col-lg-8">
-        <div id="communityMap" class="cb-map" role="region" aria-label="Peta ruang publik"></div>
-        <p class="cb-map-status" id="mapStatus" role="status" aria-live="polite">
-          Memuat lokasi ruang publik...
-        </p>
-        <div class="cb-location-results" id="locationResults" aria-live="polite"></div>
+      <div class="cb-map" style="position: relative; height: 480px;">
+        <div id="cb-leaflet-map" style="position: absolute; inset: 0; border-radius: inherit;"></div>
+
+        <article class="cb-activity-card" style="position: absolute; z-index: 1000; bottom: 16px; left: 16px;">
+          <div class="cb-activity-thumb" aria-hidden="true"></div>
+          <div>
+            <h3 class="cb-activity-title">Berkebun bersama warga</h3>
+            <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
+          </div>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+
+    <script>
+      const cbMap = L.map('cb-leaflet-map').setView([-6.9175, 107.6191], 13);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(cbMap);
+
+      const pins = [
+        { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga' },
+        { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai' },
+        { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota' }
+      ];
+
+      pins.forEach(p => {
+        L.marker([p.lat, p.lng]).addTo(cbMap).bindPopup(p.title);
+      });
+    </script>
 
 <!-- ===== Partner categories ===== -->
 <section class="cb-partners">
