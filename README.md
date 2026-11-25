@@ -41,7 +41,6 @@ https://goodstats.id/article/persentase-sumber-sampah-indonesia-2025-rumah-tangg
 https://usahid.ac.id/conference/index.php/snpk/article/download/499/438/475
 https://lestari.kompas.com/read/2026/02/16/092500886/klh-sepakati-fatwa-mui-haramkan-buang-sampah-ke-sungai-dan-laut?page=2
 https://lestari.kompas.com/read/2025/09/09/163100186/timbunan-sampah-capai-140-ribu-ton-per-hari-pengelolaannya-baru-15-persen
-Data kesadaran masyarakat (bagian Tujuan)
 https://goodstats.id/article/83-rumah-tangga-belum-lakukan-pemilahan-apa-kabar-sampah-indonesia-1mZSv
 https://rm.id/baca-berita/humaniora/334398/8375-persen-rumah-tangga-belum-pilah-sampah-yyadu-edukasi-siswa-bandung
 https://berkas.dpr.go.id/pusaka/files/info_singkat/Info%20Singkat-XVII-16-II-P3DI-Agustus-2025-2425.pdf
