@@ -2,15 +2,17 @@
 
 **About**
 
-Penumpukan sampah di permukiman masih menjadi masalah utama yang mengganggu kesehatan, kebersihan, dan kenyamanan masyarakat. Hal ini diperparah oleh rendahnya kesadaran warga dalam memilah sampah dari sumbernya serta terbatasnya akses informasi mengenai lokasi dan mekanisme penyetoran sampah yang terstruktur.
-Sebagai solusi, layanan City Bin hadir untuk mengedukasi masyarakat agar dapat memilah sampah dan mengubahnya menjadi nilai ekonomi. Namun, efektivitasnya sangat bergantung pada kemudahan akses informasi bagi warga. Oleh karena itu, dibutuhkan sebuah sarana informasi yang praktis dan inklusif untuk menjembatani masyarakat dengan layanan bank sampah terdekat, guna membangun lingkungan yang lebih bersih, sehat dan berkelanjutan.
+Penumpukan sampah di permukiman masih menjadi masalah utama yang mengganggu kesehatan, kebersihan, dan kenyamanan masyarakat. Hal ini diperparah oleh rendahnya kesadaran warga dalam memilah sampah dari sumbernya serta terbatasnya akses informasi mengenai lokasi dan mekanisme penyetoran sampah yang terstruktur. Sebagai solusi, layanan City Bin hadir untuk mengedukasi masyarakat agar dapat memilah sampah dan mengubahnya menjadi nilai ekonomi. Namun, efektivitasnya sangat bergantung pada kemudahan akses informasi bagi warga. Oleh karena itu, dibutuhkan sebuah sarana informasi yang praktis dan inklusif untuk menjembatani masyarakat dengan layanan bank sampah terdekat, guna membangun lingkungan yang lebih bersih, sehat dan berkelanjutan.
 
-Berdasarkan hasil BPS, terdapat beberapa kasus atau fenomena terkait banyaknya sampah yang beredar.
+Berdasarkan data Sistem Informasi Pengelolaan Sampah Nasional (SIPSN) Kementerian Lingkungan Hidup tahun 2025, timbulan sampah nasional mencapai 24,8 juta ton per tahun, namun hanya sekitar 34,55% (8,5 juta ton) yang terkelola dengan baik, sedangkan 65,45% (16,3 juta ton) belum tertangani secara optimal. Rumah tangga menjadi sumber sampah terbesar dengan kontribusi 56,7% atau sekitar 7,2 juta ton, dan 40,77% dari seluruh sampah berupa sisa makanan. Di wilayah padat penduduk seperti Jakarta Timur, timbulan sampah mencapai sekitar 866.563 ton per tahun, tetapi baru sekitar 39,54% yang terlayani. Dampaknya terasa pada lingkungan, di mana sekitar 16,02 juta ton sampah diperkirakan masuk ke perairan Indonesia setiap tahun. Kondisi ini menunjukkan bahwa pemilahan sampah dari rumah adalah langkah paling berpengaruh, sejalan dengan target pemerintah melalui Perpres No. 12 Tahun 2025 untuk mengelola 100% sampah pada 2029.
 
 **Tujuan**
 
-Pengembangan proyek website ini bertujuan untuk menyediakan pusat informasi sekaligus etalase digital bagi bank sampah. Website diharapkan dapat mempermudah masyarakat dalam memperoleh informasi mengenai prosedur dan jadwal penyetoran sampah, mengetahui nilai ekonomis dari setiap jenis sampah, serta mengenal dan membeli produk hasil daur ulang.
-Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dalam kegiatan pengelolaan sampah, mendorong penerapan kebiasaan memilah sampah, serta mendukung terciptanya lingkungan permukiman yang bersih, sehat, dan berkelanjutan.
+Pengembangan proyek website ini bertujuan untuk menyediakan pusat informasi sekaligus etalase digital bagi bank sampah. Website diharapkan dapat mempermudah masyarakat dalam memperoleh informasi mengenai prosedur dan jadwal penyetoran sampah, mengetahui nilai ekonomis dari setiap jenis sampah, serta mengenal dan membeli produk hasil daur ulang. Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dalam kegiatan pengelolaan sampah, mendorong penerapan kebiasaan memilah sampah, serta mendukung terciptanya lingkungan permukiman yang bersih, sehat, dan berkelanjutan.
+
+Tujuan tersebut didasari oleh rendahnya kesadaran dan partisipasi masyarakat. Berdasarkan data Badan Pusat Statistik (BPS) tahun 2025, sebanyak 83,75% rumah tangga di Indonesia belum melakukan pemilahan sampah sama sekali, sementara hanya 14,93% yang memilah dua jenis sampah dan 1,32% yang memilah tiga jenis atau lebih. Kesadaran ini juga timpang antarwilayah: DI Yogyakarta menjadi yang tertinggi dengan 59% rumah tangga tidak memilah, sedangkan di Jawa Barat angkanya masih 76,58%. Minimnya edukasi dan infrastruktur pendukung menjadi hambatan utama penerapan perilaku memilah sampah. 
+
+Dari sisi partisipasi publik, jumlah bank sampah di Indonesia baru mencapai 24.893 unit, atau 29% dari target 83.451 pada 2029 melalui program "1 RW 1 Bank Sampah". Partisipasi masyarakat di bank sampah pun cenderung fluktuatif akibat kurangnya pemahaman akan manfaat jangka panjang. Karena itu, CityBin hadir untuk memberikan edukasi pemilahan, informasi bank sampah terdekat, serta gambaran nilai ekonomis sampah agar warga lebih mudah dan termotivasi untuk berpartisipasi.
 
 **Teknologi**
 1. Bootstrap
@@ -20,7 +22,7 @@ Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dal
 
 **Fitur**
 1. Menambahkan input nama dan status kita sebagai pelajar/mahasiswa ke dalam kolom feedback agar bisa berkomentar
-2. Kalkulator Estimasi Nilai Sampah (pengguna memasukkan berat sampah, website menampilkan estimasi nilai ekonomis.)
+2. Kalkulator Estimasi Nilai Sampah (pengguna memilih jenis sampah, memasukkan jumlah item dan berat total dalam kilogram, lalu website menampilkan estimasi nilai ekonomis.)
 
 Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/user-attachments/assets/446d717e-692c-4d9d-ba09-7ece815b46a0" />
 
@@ -31,3 +33,14 @@ Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/use
 **Informasi Pendukung**
 
 Website ini ditujukan kepada masyarakat umum yang ingin mengetahui informasi pengelolaan sampah, kepada pelajar dan mahasiswa yang ingin mempelajari pemilahan atau pengolahan sampah, warga yang ingin menyetorkan sampah, dan masyarakat yang tertarik dengan produk daur ulang.
+
+https://lestari.kompas.com/read/2026/02/26/150034186/perlu-strategi-terpadu-atasi-65-persen-sampah-nasional-yang-belum-terkelola
+https://www.antaranews.com/berita/5818551/dari-laboratorium-ke-halaman-rumah
+https://data.goodstats.id/statistic/komposisi-sampah-nasional-2025-didominasi-sisa-makanan-pgp9R
+https://goodstats.id/article/persentase-sumber-sampah-indonesia-2025-rumah-tangga-dominasi-timbulan-nasional-GR9A5
+https://usahid.ac.id/conference/index.php/snpk/article/download/499/438/475
+https://lestari.kompas.com/read/2026/02/16/092500886/klh-sepakati-fatwa-mui-haramkan-buang-sampah-ke-sungai-dan-laut?page=2
+https://lestari.kompas.com/read/2025/09/09/163100186/timbunan-sampah-capai-140-ribu-ton-per-hari-pengelolaannya-baru-15-persen
+https://goodstats.id/article/83-rumah-tangga-belum-lakukan-pemilahan-apa-kabar-sampah-indonesia-1mZSv
+https://rm.id/baca-berita/humaniora/334398/8375-persen-rumah-tangga-belum-pilah-sampah-yyadu-edukasi-siswa-bandung
+https://berkas.dpr.go.id/pusaka/files/info_singkat/Info%20Singkat-XVII-16-II-P3DI-Agustus-2025-2425.pdf
