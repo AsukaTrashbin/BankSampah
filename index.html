@@ -14,6 +14,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital, wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body class="cb-landing">
 
@@ -384,12 +386,43 @@
       </div>
 
       <div class="col-12 col-lg-8">
-        <div id="communityMap" class="cb-map" role="region" aria-label="Peta ruang publik"></div>
-        <p class="cb-map-status" id="mapStatus" role="status" aria-live="polite">
-          Memuat lokasi ruang publik...
-        </p>
-        <div class="cb-location-results" id="locationResults" aria-live="polite"></div>
+        <!-- Ganti placeholder peta ini dengan embed peta asli (mis. Google Maps / Leaflet). -->
+        <div class="cb-map">
+          <span class="cb-map-label">Bandung</span>
+          <span class="cb-map-pin cb-map-pin-1" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+          <span class="cb-map-pin cb-map-pin-2" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+          <span class="cb-map-pin cb-map-pin-3" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+
+          <article class="cb-activity-card">
+            <div class="cb-activity-thumb" aria-hidden="true"></div>
+            <div>
+              <h3 class="cb-activity-title">Berkebun bersama warga</h3>
+              <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
+            </div>
+          </article>
+        </div>
       </div>
+
+      <script>
+        // Bandung center
+        const map = L.map('cb-leaflet-map', { zoomControl: true }).setView([-6.9175, 107.6191], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Replace these with the real activity locations
+        const pins = [
+          { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga' },
+          { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai' },
+          { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota' }
+        ];
+
+        pins.forEach(p => {
+          L.marker([p.lat, p.lng]).addTo(map).bindPopup(p.title);
+        });
+      </script>
     </div>
   </div>
 </section>
