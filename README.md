@@ -33,3 +33,15 @@ Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/use
 **Informasi Pendukung**
 
 Website ini ditujukan kepada masyarakat umum yang ingin mengetahui informasi pengelolaan sampah, kepada pelajar dan mahasiswa yang ingin mempelajari pemilahan atau pengolahan sampah, warga yang ingin menyetorkan sampah, dan masyarakat yang tertarik dengan produk daur ulang.
+
+https://lestari.kompas.com/read/2026/02/26/150034186/perlu-strategi-terpadu-atasi-65-persen-sampah-nasional-yang-belum-terkelola
+https://www.antaranews.com/berita/5818551/dari-laboratorium-ke-halaman-rumah
+https://data.goodstats.id/statistic/komposisi-sampah-nasional-2025-didominasi-sisa-makanan-pgp9R
+https://goodstats.id/article/persentase-sumber-sampah-indonesia-2025-rumah-tangga-dominasi-timbulan-nasional-GR9A5
+https://usahid.ac.id/conference/index.php/snpk/article/download/499/438/475
+https://lestari.kompas.com/read/2026/02/16/092500886/klh-sepakati-fatwa-mui-haramkan-buang-sampah-ke-sungai-dan-laut?page=2
+https://lestari.kompas.com/read/2025/09/09/163100186/timbunan-sampah-capai-140-ribu-ton-per-hari-pengelolaannya-baru-15-persen
+Data kesadaran masyarakat (bagian Tujuan)
+https://goodstats.id/article/83-rumah-tangga-belum-lakukan-pemilahan-apa-kabar-sampah-indonesia-1mZSv
+https://rm.id/baca-berita/humaniora/334398/8375-persen-rumah-tangga-belum-pilah-sampah-yyadu-edukasi-siswa-bandung
+https://berkas.dpr.go.id/pusaka/files/info_singkat/Info%20Singkat-XVII-16-II-P3DI-Agustus-2025-2425.pdf
