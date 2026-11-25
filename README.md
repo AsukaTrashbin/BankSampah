@@ -27,8 +27,20 @@ Dari sisi partisipasi publik, jumlah bank sampah di Indonesia baru mencapai 24.8
 Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/user-attachments/assets/446d717e-692c-4d9d-ba09-7ece815b46a0" />
 
 
-**Struktur Project** 
+**Struktur Project**
 
+```text
+BankSampah/
+├── Assets/
+│   └── img/                 # Gambar dan logo
+├── CSS/
+│   └── style.css            # Stylesheet utama
+├── Data/                    # Data JSON
+├── JavaScript/              # Script aplikasi
+├── index.html
+├── login.html
+└── signup.html
+```
 
 **Informasi Pendukung**
 

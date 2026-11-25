@@ -149,7 +149,7 @@ body {
   min-height: 536px;
   background:
     linear-gradient(180deg, rgba(1,11,28,.25) 0%, rgba(1,11,28,.55) 100%),
-    url("Assets/img/Login.jpg") center/cover;
+    url("../Assets/img/Login.jpg") center/cover;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -425,7 +425,7 @@ body {
 }
 
 .cb-landing {
-  background-image: url("Assets/img/bglanding.jpg");
+  background-image: url("../Assets/img/bglanding.jpg");
   color: var(--cb-body-ink);
 }
 
@@ -550,7 +550,7 @@ body {
       rgba(8, 20, 40, 0) 0%,
       rgba(8, 20, 40, 0.45) 30%,
       rgba(6, 16, 34, 0.95) 100%
-    ),url("Assets/img/bglanding.jpg");
+    ),url("../Assets/img/bglanding.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -1376,6 +1376,28 @@ body {
   color: var(--cb-body-ink);
   font-size: 0.8rem;
   font-weight: 600;
+}
+
+.cb-calc-unit-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(21, 61, 50, 0.12);
+}
+
+.cb-calc-unit-price > span {
+  color: var(--cb-body-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cb-calculator-result .cb-calc-unit-price output {
+  color: var(--cb-forest);
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .cb-calculator-result output {

@@ -13,9 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital, wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body class="cb-landing">
 
@@ -64,7 +62,7 @@
 </nav>
 
 <!-- ===== Hero ===== -->
-<!-- Ganti gradient placeholder .cb-landing-hero dengan foto kota asli (mis. bandung.jpg) lewat background-image di style.css. -->
+<!-- Ganti gradient placeholder .cb-landing-hero dengan foto kota asli (mis. bandung.jpg) lewat background-image di CSS/style.css. -->
 <header class="cb-landing-hero">
   <div class="container">
     <div class="row">
@@ -386,37 +384,13 @@
       </div>
 
       <div class="col-12 col-lg-8">
-      <div class="cb-map" style="position: relative; height: 480px;">
-        <div id="cb-leaflet-map" style="position: absolute; inset: 0; border-radius: inherit;"></div>
-
-        <article class="cb-activity-card" style="position: absolute; z-index: 1000; bottom: 16px; left: 16px;">
-          <div class="cb-activity-thumb" aria-hidden="true"></div>
-          <div>
-            <h3 class="cb-activity-title">Berkebun bersama warga</h3>
-            <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
-          </div>
-        </article>
+        <div id="communityMap" class="cb-map" role="region" aria-label="Peta ruang publik"></div>
+        <p class="cb-map-status" id="mapStatus" role="status" aria-live="polite">
+          Memuat lokasi ruang publik...
+        </p>
+        <div class="cb-location-results" id="locationResults" aria-live="polite"></div>
       </div>
     </div>
-
-    <script>
-      const cbMap = L.map('cb-leaflet-map').setView([-6.9175, 107.6191], 13);
-
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(cbMap);
-
-      const pins = [
-        { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga' },
-        { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai' },
-        { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota' }
-      ];
-
-      pins.forEach(p => {
-        L.marker([p.lat, p.lng]).addTo(cbMap).bindPopup(p.title);
-      });
-    </script>
 
 <!-- ===== Partner categories ===== -->
 <section class="cb-partners">
@@ -665,9 +639,13 @@
           </button>
 
           <div class="cb-calculator-result" aria-live="polite">
+            <div class="cb-calc-unit-price">
+              <span>Harga satuan simulasi</span>
+              <output id="wasteCalcRate" for="wasteWeight">—</output>
+            </div>
             <span>Estimasi nilai ekonomis</span>
             <output id="wasteCalcValue" for="wasteQuantity wasteWeight">—</output>
-            <p id="wasteCalcNote">Pilih jenis, masukkan jumlah sampah, lalu berat totalnya.</p>
+            <p id="wasteCalcNote">Pilih jenis, masukkan jumlah dan berat, lalu tekan Hitung estimasi.</p>
           </div>
           <p class="cb-calc-safety-note d-none" id="wasteB3Note" role="note">
             Sampah B3 perlu diserahkan kepada pengelola berwenang. Nilai di atas hanya simulasi.
@@ -682,10 +660,10 @@
 </div>
 
 <!-- ===== Footer ===== -->
-<footer class="cb-site-footer">
-  <div class="container">
+<footer class="cb-site-footer w-100">
+  <div class="container-fluid px-4 px-lg-5 py-5">
     <div class="row g-4 g-lg-5">
-      <div class="col-12 col-lg-5">
+      <div class="col-12 col-md-6 col-xl-4">
         <a class="cb-brand cb-brand-footer" href="#home">
           <span class="cb-logo" aria-hidden="true">
             <i class="bi bi-trash3-fill"></i>
@@ -699,7 +677,7 @@
         <a href="#kegiatan" class="btn cb-btn cb-btn-white">Kegiatan</a>
       </div>
 
-      <div class="col-6 col-lg-3 offset-lg-1">
+      <div class="col-6 col-md-3 col-xl-2 offset-xl-2">
         <h2 class="cb-footer-heading">ISU KOTA</h2>
         <ul class="cb-footer-links">
           <li><a href="#komunitas">Public Space</a></li>
@@ -708,7 +686,7 @@
         </ul>
       </div>
 
-      <div class="col-6 col-lg-3">
+      <div class="col-6 col-md-3 col-xl-2">
         <h2 class="cb-footer-heading">KOMUNITAS</h2>
         <ul class="cb-footer-links">
           <li><a href="#kegiatan">Activities</a></li>
@@ -719,9 +697,9 @@
       </div>
     </div>
 
-    <div class="cb-footer-bottom">
-      <p>© 2026 Konsep SDG 11. All rights reserved.</p>
-      <div class="cb-footer-legal">
+    <div class="cb-footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mt-5 pt-4">
+      <p class="mb-0">© 2026 Konsep SDG 11. All rights reserved.</p>
+      <div class="cb-footer-legal d-flex gap-4">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>

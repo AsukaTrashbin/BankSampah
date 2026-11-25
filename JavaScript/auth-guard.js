@@ -1,19 +1,17 @@
-(function () {
-  'use strict';
+import { apiGet } from './auth-api.js';
 
-  var STORAGE_KEY = 'citybinUser';
-  var LOGIN_URL = 'login.html';
+export async function requireSession() {
+  const { response, data } = await apiGet('/api/auth/me');
 
-  function hasSession() {
-    try {
-      return Boolean(localStorage.getItem(STORAGE_KEY) || sessionStorage.getItem(STORAGE_KEY));
-    } catch (error) {
-      console.error('Gagal membaca data login:', error);
-      return false;
-    }
+  if (response.status === 401) {
+    const next = encodeURIComponent(window.location.pathname);
+    window.location.replace(`/login.html?next=${next}`);
+    return null;
   }
 
-  if (!hasSession()) {
-    window.location.replace(LOGIN_URL);
+  if (!response.ok) {
+    throw new Error('Sesi tidak dapat diperiksa.');
   }
-})();
+
+  return data && data.user ? data.user : null;
+}
