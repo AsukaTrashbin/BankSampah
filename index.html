@@ -6,11 +6,13 @@
   <meta name="description" content="CityBin — SDG 11: Sustainable Cities and Communities. Ruang kota yang inklusif, aman, tangguh, dan berkelanjutan melalui partisipasi warga.">
   <title>CityBin — SDG 11: Sustainable Cities and Communities</title>
 
+  <link rel="icon" type="image/jpeg" href="Assets/img/Logo.jpg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital, wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -22,7 +24,7 @@
   <div class="container">
     <a class="cb-brand" href="#home">
       <span class="cb-logo" aria-hidden="true">
-        <i class="bi bi-trash3-fill"></i>
+        <img src="Assets/img/Logo.jpg" alt="Logo" width="50">
       </span>
       CityBin
     </a>
@@ -42,13 +44,16 @@
           <a class="nav-link" href="#isu-kota">Isu Kota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#komunitas">Komunitas</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#rancangan">Rancangan</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="#komunitas">Komunitas</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="#kegiatan">Kegiatan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#feedback">Feedback</a>
         </li>
         <li class="nav-item">
           <a class="cb-login" href="login.html">Login</a>
@@ -344,48 +349,51 @@
 <section class="cb-activities" id="kegiatan">
   <div class="container">
     <p class="cb-label">Good things happen close to home</p>
-    <h2 class="cb-section-title">Find Community Activities</h2>
+    <h2 class="cb-section-title">Find Community Spaces</h2>
     <p class="cb-activities-lead">
-      Temukan kegiatan komunitas, ruang publik, dan kegiatan lingkungan terdekat dari lokasi Anda.
+      Jelajahi taman dan ruang publik nyata berdasarkan kota. Lokasi di peta bukan jadwal kegiatan.
     </p>
 
     <div class="row g-4 align-items-stretch mt-2">
       <div class="col-12 col-lg-4">
-        <div class="cb-filter-panel">
-          <p class="cb-filter-label">My Location</p>
+        <form class="cb-filter-panel" id="communityFilters">
+          <p class="cb-filter-label">Jelajahi lokasi</p>
 
-          <label for="location" class="form-label cb-field-label">Lokasi</label>
+          <label for="location" class="form-label cb-field-label">Kota</label>
           <select class="form-select cb-select" id="location">
-            <option selected>Bandung, Jawa Barat</option>
-            <option>Jakarta, DKI Jakarta</option>
-            <option>Surabaya, Jawa Timur</option>
-            <option>Yogyakarta, DI Yogyakarta</option>
+            <option value="bandung" selected>Bandung, Jawa Barat</option>
+            <option value="jakarta">Jakarta, DKI Jakarta</option>
+            <option value="surabaya">Surabaya, Jawa Timur</option>
+            <option value="yogyakarta">Yogyakarta, DI Yogyakarta</option>
           </select>
 
-          <label for="activitySearch" class="form-label cb-field-label">Cari kegiatan</label>
+          <label for="locationSearch" class="form-label cb-field-label">Cari ruang publik</label>
           <div class="cb-search-field">
             <i class="bi bi-search" aria-hidden="true"></i>
-            <input type="search" class="form-control cb-search-input" id="activitySearch"
-                   placeholder="Search activities...">
+            <input type="search" class="form-control cb-search-input" id="locationSearch"
+                   placeholder="Cari nama taman atau kota...">
           </div>
 
-          <button type="button" class="btn cb-btn cb-btn-forest w-100">
-            Search <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          <button type="submit" class="btn cb-btn cb-btn-forest w-100">
+            Cari lokasi <i class="bi bi-arrow-right" aria-hidden="true"></i>
           </button>
 
-          <p class="cb-filter-hint">Atau cari berdasarkan tema:</p>
-          <div class="d-flex flex-wrap gap-2">
-            <a href="#" class="cb-tag">Ruang publik</a>
-            <a href="#" class="cb-tag">Lingkungan</a>
-          </div>
-        </div>
+          <p class="cb-filter-hint mb-0">
+            Titik lokasi bersumber dari OpenStreetMap. Periksa sumber untuk detail tempat;
+            peta ini tidak menampilkan jadwal acara.
+          </p>
+        </form>
       </div>
 
       <div class="col-12 col-lg-8">
-        <div class="cb-map" style="position: relative; height: 480px;">
-          <div id="cb-leaflet-map" style="position: absolute; inset: 0; border-radius: inherit;"></div>
+        <!-- Ganti placeholder peta ini dengan embed peta asli (mis. Google Maps / Leaflet). -->
+        <div class="cb-map">
+          <span class="cb-map-label">Bandung</span>
+          <span class="cb-map-pin cb-map-pin-1" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+          <span class="cb-map-pin cb-map-pin-2" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+          <span class="cb-map-pin cb-map-pin-3" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
 
-          <article class="cb-activity-card" style="position: absolute; z-index: 1000; bottom: 16px; left: 16px;">
+          <article class="cb-activity-card">
             <div class="cb-activity-thumb" aria-hidden="true"></div>
             <div>
               <h3 class="cb-activity-title">Berkebun bersama warga</h3>
@@ -516,6 +524,155 @@
   </div>
 </section>
 
+<!-- ===== Feedback ===== -->
+<section class="cb-feedback" id="feedback">
+  <div class="container">
+    <div class="row g-4 g-lg-5">
+      <div class="col-12 col-lg-5">
+        <p class="cb-label">Tell us what you think</p>
+        <h2 class="cb-section-title">Feedback</h2>
+        <p class="cb-feedback-lead">
+          Bagikan masukan, ide, atau pengalaman Anda tentang pengelolaan sampah dan
+          kota yang lebih baik. Setiap komentar membantu CityBin berkembang.
+        </p>
+
+        <form class="cb-feedback-form" id="feedbackForm" novalidate>
+          <div class="mb-3">
+            <label for="fbName" class="form-label cb-field-label">Nama</label>
+            <input type="text" class="form-control cb-input" id="fbName" name="name"
+                   placeholder="Nama Anda" maxlength="40" autocomplete="name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="fbStatus" class="form-label cb-field-label">Status</label>
+            <select class="form-select cb-select cb-select-flush" id="fbStatus" name="status" required>
+              <option value="" selected disabled>Pilih status Anda</option>
+              <option value="Pelajar">Pelajar</option>
+              <option value="Mahasiswa">Mahasiswa</option>
+              <option value="Umum">Umum</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="fbMessage" class="form-label cb-field-label">Komentar</label>
+            <textarea class="form-control cb-input" id="fbMessage" name="message" rows="4"
+                      placeholder="Tulis feedback Anda di sini..." maxlength="300" required></textarea>
+            <div class="cb-fb-counter" id="fbCounter" aria-live="off">0 / 300</div>
+          </div>
+
+          <div id="fbAlert" class="cb-fb-alert d-none" role="alert"></div>
+
+          <button type="submit" class="btn cb-btn cb-btn-forest w-100">
+            Kirim Feedback <i class="bi bi-send" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="col-12 col-lg-7">
+        <div class="cb-fb-head">
+          <h3 class="cb-fb-title">Komentar Terbaru</h3>
+          <span class="cb-fb-count" id="fbCount">0</span>
+        </div>
+        <div class="cb-fb-list" id="fbList" aria-live="polite">
+          <p class="cb-fb-empty" id="fbEmpty">
+            <i class="bi bi-chat-square-text" aria-hidden="true"></i>
+            Belum ada komentar. Jadilah yang pertama memberikan feedback!
+          </p>
+        </div>
+        <p class="cb-fb-note">Komentar disimpan di browser Anda pada perangkat ini.</p>
+      </div>
+    </div>
+    <div class="cb-feedback-calculator">
+      <span class="cb-feedback-calculator-label">Estimasi nilai sampah</span>
+      <button type="button" class="cb-feedback-calculator-button"
+              data-bs-toggle="modal" data-bs-target="#wasteCalcModal"
+              aria-label="Buka kalkulator estimasi nilai sampah" title="Kalkulator nilai sampah">
+        <i class="bi bi-calculator" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Waste value calculator popup ===== -->
+<div class="modal fade cb-calc-modal" id="wasteCalcModal" tabindex="-1"
+     aria-labelledby="wasteCalcModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <p class="cb-label mb-1">Turn waste into value</p>
+          <h2 class="modal-title fs-4" id="wasteCalcModalLabel">Kalkulator Estimasi Nilai Sampah</h2>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <p class="cb-calculator-rate">
+          <i class="bi bi-info-circle" aria-hidden="true"></i>
+          Tarif simulasi (sama untuk semua jenis): <strong>Rp 2.000/kg</strong>
+        </p>
+        <form class="cb-calculator-card" id="wasteCalcForm" novalidate>
+          <fieldset class="cb-waste-type-fieldset">
+            <legend class="form-label cb-field-label">Jenis sampah</legend>
+            <div class="cb-waste-type-grid">
+              <div class="cb-waste-type-option">
+                <input class="visually-hidden" type="radio" id="wasteTypeOrganic" name="wasteType"
+                       value="organik" data-label="Organik" aria-describedby="wasteTypeHelp wasteCalcError" required>
+                <label for="wasteTypeOrganic">
+                  <i class="bi bi-tree-fill" aria-hidden="true"></i>
+                  <span>Organik</span>
+                </label>
+              </div>
+              <div class="cb-waste-type-option">
+                <input class="visually-hidden" type="radio" id="wasteTypeInorganic" name="wasteType"
+                       value="anorganik" data-label="Anorganik" aria-describedby="wasteTypeHelp wasteCalcError" required>
+                <label for="wasteTypeInorganic">
+                  <i class="bi bi-recycle" aria-hidden="true"></i>
+                  <span>Anorganik</span>
+                </label>
+              </div>
+              <div class="cb-waste-type-option">
+                <input class="visually-hidden" type="radio" id="wasteTypeB3" name="wasteType"
+                       value="b3" data-label="B3" aria-describedby="wasteTypeHelp wasteCalcError" required>
+                <label for="wasteTypeB3">
+                  <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+                  <span>B3</span>
+                </label>
+              </div>
+            </div>
+            <small class="cb-calc-help" id="wasteTypeHelp">Pilih Organik, Anorganik, atau B3 (Bahan Berbahaya dan Beracun).</small>
+          </fieldset>
+
+          <label for="wasteWeight" class="form-label cb-field-label">Berat sampah</label>
+          <div class="cb-calc-input">
+            <input type="number" class="form-control" id="wasteWeight" name="weight"
+                   min="0.01" step="0.01" inputmode="decimal" placeholder="Contoh: 2.5"
+                   aria-describedby="wasteWeightHelp wasteCalcError" required>
+            <span>kg</span>
+          </div>
+          <small class="cb-calc-help" id="wasteWeightHelp">Masukkan berat dalam kilogram.</small>
+          <p class="cb-calculator-error d-none" id="wasteCalcError" role="alert"></p>
+
+          <button type="submit" class="btn cb-btn cb-btn-forest w-100">
+            Hitung estimasi <i class="bi bi-calculator" aria-hidden="true"></i>
+          </button>
+
+          <div class="cb-calculator-result" aria-live="polite">
+            <span>Estimasi nilai ekonomis</span>
+            <output id="wasteCalcValue" for="wasteWeight">—</output>
+            <p id="wasteCalcNote">Pilih jenis dan masukkan berat untuk mulai menghitung.</p>
+          </div>
+          <p class="cb-calc-safety-note d-none" id="wasteB3Note" role="note">
+            Sampah B3 perlu diserahkan kepada pengelola berwenang. Nilai di atas hanya simulasi.
+          </p>
+        </form>
+        <p class="cb-calculator-disclaimer">
+          Nilai ini hanya simulasi menggunakan tarif tetap Rp 2.000/kg untuk semua kategori. Harga sebenarnya dapat berbeda menurut jenis sampah dan kebijakan bank sampah.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ===== Footer ===== -->
 <footer class="cb-site-footer">
   <div class="container">
@@ -548,6 +705,7 @@
         <ul class="cb-footer-links">
           <li><a href="#kegiatan">Activities</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#feedback">Feedback</a></li>
           <li><a href="#rancangan">Design</a></li>
         </ul>
       </div>
@@ -564,5 +722,9 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="JavaScript/script.js"></script>
+<script src="JavaScript/waste-calculator.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="JavaScript/community-map.js"></script>
 </body>
 </html>
