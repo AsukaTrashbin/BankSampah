@@ -20,7 +20,7 @@ Selain itu, website ini diharapkan dapat meningkatkan partisipasi masyarakat dal
 
 **Fitur**
 1. Menambahkan input nama dan status kita sebagai pelajar/mahasiswa ke dalam kolom feedback agar bisa berkomentar
-2. Kalkulator Estimasi Nilai Sampah (pengguna memasukkan berat sampah, website menampilkan estimasi nilai ekonomis.)
+2. Kalkulator Estimasi Nilai Sampah (pengguna memilih jenis sampah, memasukkan jumlah item dan berat total dalam kilogram, lalu website menampilkan estimasi nilai ekonomis.)
 
 Sitemap: <img width="872" height="488" alt="SiteMap" src="https://github.com/user-attachments/assets/446d717e-692c-4d9d-ba09-7ece815b46a0" />
 
