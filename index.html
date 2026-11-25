@@ -400,23 +400,110 @@
     </div>
 
     <script>
-      const cbMap = L.map('cb-leaflet-map').setView([-6.9175, 107.6191], 13);
+  const cbMap = L.map('cb-leaflet-map').setView([-6.9175, 107.6191], 13);
 
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(cbMap);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(cbMap);
 
-      const pins = [
-        { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga' },
-        { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai' },
-        { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota' }
-      ];
+  const cities = {
+    bandung: {
+      name: 'Bandung',
+      center: [-6.9175, 107.6191],
+      zoom: 13,
+      places: [
+        { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga', type: 'Aksi lingkungan' },
+        { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai', type: 'Aksi lingkungan' },
+        { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota', type: 'Aksi lingkungan' }
+      ]
+    },
+    jakarta: {
+      name: 'Jakarta',
+      center: [-6.2088, 106.8456],
+      zoom: 12,
+      places: [
+        { lat: -6.1754, lng: 106.8272, title: 'Kerja bakti di Monas', type: 'Kerja bakti' },
+        { lat: -6.1352, lng: 106.8133, title: 'Bersih-bersih Kota Tua', type: 'Aksi lingkungan' }
+      ]
+    },
+    surabaya: {
+      name: 'Surabaya',
+      center: [-7.2575, 112.7521],
+      zoom: 13,
+      places: [
+        { lat: -7.2459, lng: 112.7378, title: 'Taman Bungkul bersama warga', type: 'Aksi lingkungan' },
+        { lat: -7.2650, lng: 112.7480, title: 'Tanam pohon di Surabaya', type: 'Aksi lingkungan' }
+      ]
+    },
+    yogyakarta: {
+      name: 'Yogyakarta',
+      center: [-7.7956, 110.3695],
+      zoom: 13,
+      places: [
+        { lat: -7.8014, lng: 110.3644, title: 'Bersih Taman Pintar', type: 'Kerja bakti' },
+        { lat: -7.7836, lng: 110.3900, title: 'Berkebun di Alun-alun', type: 'Aksi lingkungan' }
+      ]
+    }
+  };
 
-      pins.forEach(p => {
-        L.marker([p.lat, p.lng]).addTo(cbMap).bindPopup(p.title);
-      });
-    </script>
+  const cityMarkers = L.layerGroup().addTo(cbMap);
+  const citySelect = document.getElementById('location');
+  const filterForm = document.getElementById('communityFilters');
+  const cardTitle = document.getElementById('cbActivityTitle');
+  const cardMeta = document.getElementById('cbActivityMeta');
+
+  function updateCard(key, place) {
+    const city = cities[key];
+    const p = place || city.places[0];
+    if (!p) return;
+    cardTitle.textContent = p.title;
+    cardMeta.textContent = `${p.type} · ${city.name}`;
+  }
+
+  function showCity(key) {
+    const city = cities[key];
+    if (!city) return;
+
+    cbMap.setView(city.center, city.zoom);
+    cityMarkers.clearLayers();
+
+    city.places.forEach(p => {
+      L.marker([p.lat, p.lng])
+        .bindPopup(p.title)
+        .on('click', () => updateCard(key, p))
+        .addTo(cityMarkers);
+    });
+
+    updateCard(key);
+  }
+
+  citySelect.addEventListener('change', () => showCity(citySelect.value));
+
+  filterForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const q = document.getElementById('locationSearch').value.trim().toLowerCase();
+    if (!q) return;
+
+    const cityMatch = Object.keys(cities).find(k =>
+      k.includes(q) || cities[k].name.toLowerCase().includes(q)
+    );
+    if (cityMatch) {
+      citySelect.value = cityMatch;
+      showCity(cityMatch);
+      return;
+    }
+
+    const key = citySelect.value;
+    const place = cities[key].places.find(p => p.title.toLowerCase().includes(q));
+    if (place) {
+      cbMap.setView([place.lat, place.lng], 16);
+      updateCard(key, place);
+    }
+  });
+
+  showCity(citySelect.value);
+</script>
 
 <!-- ===== Partner categories ===== -->
 <section class="cb-partners">
