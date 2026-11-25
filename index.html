@@ -386,46 +386,37 @@
       </div>
 
       <div class="col-12 col-lg-8">
-        <!-- Ganti placeholder peta ini dengan embed peta asli (mis. Google Maps / Leaflet). -->
-        <div class="cb-map">
-          <span class="cb-map-label">Bandung</span>
-          <span class="cb-map-pin cb-map-pin-1" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
-          <span class="cb-map-pin cb-map-pin-2" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
-          <span class="cb-map-pin cb-map-pin-3" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
+      <div class="cb-map" style="position: relative; height: 480px;">
+        <div id="cb-leaflet-map" style="position: absolute; inset: 0; border-radius: inherit;"></div>
 
-          <article class="cb-activity-card">
-            <div class="cb-activity-thumb" aria-hidden="true"></div>
-            <div>
-              <h3 class="cb-activity-title">Berkebun bersama warga</h3>
-              <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
-            </div>
-          </article>
-        </div>
+        <article class="cb-activity-card" style="position: absolute; z-index: 1000; bottom: 16px; left: 16px;">
+          <div class="cb-activity-thumb" aria-hidden="true"></div>
+          <div>
+            <h3 class="cb-activity-title">Berkebun bersama warga</h3>
+            <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
+          </div>
+        </article>
       </div>
-
-      <script>
-        // Bandung center
-        const map = L.map('cb-leaflet-map', { zoomControl: true }).setView([-6.9175, 107.6191], 13);
-
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Replace these with the real activity locations
-        const pins = [
-          { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga' },
-          { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai' },
-          { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota' }
-        ];
-
-        pins.forEach(p => {
-          L.marker([p.lat, p.lng]).addTo(map).bindPopup(p.title);
-        });
-      </script>
     </div>
-  </div>
-</section>
+
+    <script>
+      const cbMap = L.map('cb-leaflet-map').setView([-6.9175, 107.6191], 13);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(cbMap);
+
+      const pins = [
+        { lat: -6.9147, lng: 107.6098, title: 'Berkebun bersama warga' },
+        { lat: -6.9030, lng: 107.6250, title: 'Bersih sungai' },
+        { lat: -6.9270, lng: 107.6350, title: 'Tanam pohon di taman kota' }
+      ];
+
+      pins.forEach(p => {
+        L.marker([p.lat, p.lng]).addTo(cbMap).bindPopup(p.title);
+      });
+    </script>
 
 <!-- ===== Partner categories ===== -->
 <section class="cb-partners">
