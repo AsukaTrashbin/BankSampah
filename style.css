@@ -1139,6 +1139,10 @@ body {
   box-shadow: 0 24px 70px rgba(1, 11, 28, 0.24);
 }
 
+.cb-calc-modal .modal-dialog {
+  max-width: 680px;
+}
+
 .cb-calc-modal .modal-header {
   align-items: flex-start;
   padding: 1.5rem 1.5rem 0.75rem;
@@ -1298,6 +1302,38 @@ body {
   box-shadow: none;
 }
 
+.cb-calc-stepper {
+  display: grid;
+  width: 3rem;
+  min-height: 3.7rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  background: #fff;
+  color: var(--cb-forest);
+  font-size: 1.2rem;
+}
+
+.cb-calc-stepper:hover,
+.cb-calc-stepper:focus-visible {
+  background: var(--cb-paper-mint);
+}
+
+.cb-calc-stepper:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid rgba(25, 75, 50, 0.25);
+  outline-offset: -3px;
+}
+
+.cb-calc-stepper:first-child {
+  border-right: 1px solid var(--cb-hairline);
+}
+
+.cb-calc-stepper:last-of-type {
+  border-left: 1px solid var(--cb-hairline);
+}
+
 .cb-calc-input span {
   display: grid;
   min-width: 3.5rem;
@@ -1342,6 +1378,28 @@ body {
   font-weight: 600;
 }
 
+.cb-calc-unit-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(21, 61, 50, 0.12);
+}
+
+.cb-calc-unit-price > span {
+  color: var(--cb-body-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cb-calculator-result .cb-calc-unit-price output {
+  color: var(--cb-forest);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .cb-calculator-result output {
   color: var(--cb-forest);
   font-size: clamp(1.6rem, 3vw, 2rem);
@@ -1372,6 +1430,43 @@ body {
   color: #78847b;
   font-size: 0.76rem;
   line-height: 1.6;
+}
+
+@media (max-width: 575.98px) {
+  .cb-calc-modal .modal-dialog {
+    margin: 0.5rem;
+  }
+
+  .cb-calc-modal .modal-header {
+    padding: 1.25rem 1.1rem 0.65rem;
+  }
+
+  .cb-calc-modal .modal-title {
+    max-width: 17rem;
+    font-size: 1.25rem;
+  }
+
+  .cb-calc-modal .modal-body {
+    padding: 0 1.1rem 1.1rem;
+  }
+
+  .cb-waste-type-grid {
+    gap: 0.4rem;
+  }
+
+  .cb-waste-type-option label {
+    min-height: 4.5rem;
+    font-size: 0.73rem;
+  }
+
+  .cb-calc-stepper {
+    width: 2.6rem;
+  }
+
+  .cb-calc-input span {
+    min-width: 2.8rem;
+    padding-inline: 0.5rem;
+  }
 }
 
 /* Activities + map */

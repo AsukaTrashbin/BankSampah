@@ -587,7 +587,7 @@
 <!-- ===== Waste value calculator popup ===== -->
 <div class="modal fade cb-calc-modal" id="wasteCalcModal" tabindex="-1"
      aria-labelledby="wasteCalcModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <div>
@@ -633,14 +633,31 @@
             <small class="cb-calc-help" id="wasteTypeHelp">Pilih Organik, Anorganik, atau B3 (Bahan Berbahaya dan Beracun).</small>
           </fieldset>
 
+          <label for="wasteQuantity" class="form-label cb-field-label">Jumlah sampah</label>
+          <div class="cb-calc-input">
+            <input type="number" class="form-control" id="wasteQuantity" name="quantity"
+                   min="1" step="1" inputmode="numeric" placeholder="Contoh: 10"
+                   aria-describedby="wasteQuantityHelp wasteCalcError" required>
+            <span>item</span>
+          </div>
+          <small class="cb-calc-help" id="wasteQuantityHelp">Masukkan berapa banyak sampah yang ditemukan.</small>
+
           <label for="wasteWeight" class="form-label cb-field-label">Berat sampah</label>
           <div class="cb-calc-input">
+            <button type="button" class="cb-calc-stepper" id="wasteWeightDecrease"
+                    aria-label="Kurangi berat 0,5 kilogram" title="Kurangi 0,5 kg">
+              <i class="bi bi-dash" aria-hidden="true"></i>
+            </button>
             <input type="number" class="form-control" id="wasteWeight" name="weight"
                    min="0.01" step="0.01" inputmode="decimal" placeholder="Contoh: 2.5"
                    aria-describedby="wasteWeightHelp wasteCalcError" required>
+            <button type="button" class="cb-calc-stepper" id="wasteWeightIncrease"
+                    aria-label="Tambah berat 0,5 kilogram" title="Tambah 0,5 kg">
+              <i class="bi bi-plus" aria-hidden="true"></i>
+            </button>
             <span>kg</span>
           </div>
-          <small class="cb-calc-help" id="wasteWeightHelp">Masukkan berat dalam kilogram.</small>
+          <small class="cb-calc-help" id="wasteWeightHelp">Masukkan berat total dalam kilogram, atau gunakan tombol +/− untuk menambah atau mengurangi 0,5 kg.</small>
           <p class="cb-calculator-error d-none" id="wasteCalcError" role="alert"></p>
 
           <button type="submit" class="btn cb-btn cb-btn-forest w-100">
@@ -648,9 +665,13 @@
           </button>
 
           <div class="cb-calculator-result" aria-live="polite">
+            <div class="cb-calc-unit-price">
+              <span>Harga satuan simulasi</span>
+              <output id="wasteCalcRate" for="wasteWeight">—</output>
+            </div>
             <span>Estimasi nilai ekonomis</span>
-            <output id="wasteCalcValue" for="wasteWeight">—</output>
-            <p id="wasteCalcNote">Pilih jenis dan masukkan berat untuk mulai menghitung.</p>
+            <output id="wasteCalcValue" for="wasteQuantity wasteWeight">—</output>
+            <p id="wasteCalcNote">Pilih jenis, masukkan jumlah dan berat, lalu tekan Hitung estimasi.</p>
           </div>
           <p class="cb-calc-safety-note d-none" id="wasteB3Note" role="note">
             Sampah B3 perlu diserahkan kepada pengelola berwenang. Nilai di atas hanya simulasi.
