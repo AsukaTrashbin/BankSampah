@@ -665,9 +665,13 @@
           </button>
 
           <div class="cb-calculator-result" aria-live="polite">
+            <div class="cb-calc-unit-price">
+              <span>Harga satuan simulasi</span>
+              <output id="wasteCalcRate" for="wasteWeight">—</output>
+            </div>
             <span>Estimasi nilai ekonomis</span>
             <output id="wasteCalcValue" for="wasteQuantity wasteWeight">—</output>
-            <p id="wasteCalcNote">Pilih jenis, masukkan jumlah sampah, lalu berat totalnya.</p>
+            <p id="wasteCalcNote">Pilih jenis, masukkan jumlah dan berat, lalu tekan Hitung estimasi.</p>
           </div>
           <p class="cb-calc-safety-note d-none" id="wasteB3Note" role="note">
             Sampah B3 perlu diserahkan kepada pengelola berwenang. Nilai di atas hanya simulasi.

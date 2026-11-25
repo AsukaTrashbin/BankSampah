@@ -1378,6 +1378,28 @@ body {
   font-weight: 600;
 }
 
+.cb-calc-unit-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(21, 61, 50, 0.12);
+}
+
+.cb-calc-unit-price > span {
+  color: var(--cb-body-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.cb-calculator-result .cb-calc-unit-price output {
+  color: var(--cb-forest);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .cb-calculator-result output {
   color: var(--cb-forest);
   font-size: clamp(1.6rem, 3vw, 2rem);
