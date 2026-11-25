@@ -86,14 +86,14 @@
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
               <input type="email" id="email" name="email" class="form-control"
-                     placeholder="nama@email.com" required>
+                     placeholder="nama@email.com" autocomplete="email" required>
             </div>
 
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <div class="cb-password">
                 <input type="password" id="password" name="password" class="form-control"
-                       placeholder="Masukkan kata sandi" required>
+                       placeholder="Masukkan kata sandi" autocomplete="current-password" required>
                 <button type="button" class="cb-toggle" id="togglePw" aria-label="Tampilkan kata sandi">Show</button>
               </div>
             </div>
@@ -103,7 +103,7 @@
                 <input class="form-check-input" type="checkbox" id="remember" name="remember">
                 <label class="form-check-label" for="remember">Remember me</label>
               </div>
-              <a href="#" class="cb-forgot">Forgot password?</a>
+              <a href="forgot-password.html" class="cb-forgot">Forgot password?</a>
             </div>
 
             <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
@@ -121,6 +121,6 @@
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="JavaScript/login.js"></script>
+<script type="module" src="JavaScript/login.js"></script>
 </body>
 </html>

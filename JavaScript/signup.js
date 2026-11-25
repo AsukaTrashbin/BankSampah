@@ -1,117 +1,89 @@
-(function () {
-  'use strict';
+import { apiPost, showMessage, setBusy, errorMessage } from './auth-api.js';
 
-  var USERS_URL = 'users.json';
-  var DEMO_USERS_KEY = 'citybinDemoUsers';
-  var MIN_PASSWORD_LENGTH = 8;
+const MIN_PASSWORD_LENGTH = 8;
+const PASSWORD_RULE = 'Password minimal 8 karakter dan harus mengandung huruf serta angka.';
 
-  function showMessage(message, type) {
-    var alert = document.getElementById('signupAlert');
-    alert.textContent = message;
-    alert.className = 'alert alert-' + type;
+function isValidPassword(password) {
+  return password.length >= MIN_PASSWORD_LENGTH &&
+    password.length <= 128 &&
+    /[A-Za-z]/.test(password) &&
+    /[0-9]/.test(password);
+}
+
+function initSignupForm() {
+  const form = document.getElementById('signupForm');
+  if (!form) {
+    return;
   }
 
-  function sha256Hex(value) {
-    var data = new TextEncoder().encode(value);
-    return crypto.subtle.digest('SHA-256', data).then(function (digest) {
-      return Array.from(new Uint8Array(digest))
-        .map(function (byte) { return byte.toString(16).padStart(2, '0'); })
-        .join('');
-    });
-  }
+  const alertBox = document.getElementById('signupAlert');
+  const submitButton = form.querySelector('[type="submit"]');
+  const nameInput = form.elements.namedItem('name');
+  const emailInput = form.elements.namedItem('email');
+  const passwordInput = form.elements.namedItem('password');
+  const confirmInput = form.elements.namedItem('confirmPassword');
 
-  function loadStaticUsers() {
-    return fetch(USERS_URL, { cache: 'no-store' }).then(function (response) {
-      if (!response.ok) {
-        throw new Error('Gagal memuat ' + USERS_URL + ' (HTTP ' + response.status + ')');
-      }
-      return response.json();
-    }).then(function (users) {
-      if (!Array.isArray(users)) {
-        throw new Error('Format ' + USERS_URL + ' tidak valid');
-      }
-      return users;
-    });
-  }
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
 
-  function readDemoUsers() {
-    var users = JSON.parse(localStorage.getItem(DEMO_USERS_KEY) || '[]');
-    if (!Array.isArray(users)) {
-      throw new Error('Format data pendaftaran tidak valid');
+    const name = nameInput.value.trim().replace(/\s+/g, ' ');
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmInput.value;
+
+    if (!name) {
+      showMessage(alertBox, 'Nama wajib diisi.', 'danger');
+      nameInput.focus();
+      return;
     }
-    return users;
-  }
-
-  function init() {
-    var form = document.getElementById('signupForm');
-    if (!form) {
+    if (name.length < 2 || name.length > 60) {
+      showMessage(alertBox, 'Nama harus terdiri dari 2 sampai 60 karakter.', 'danger');
+      nameInput.focus();
+      return;
+    }
+    if (!email || !emailInput.checkValidity()) {
+      showMessage(alertBox, 'Masukkan alamat email yang valid.', 'danger');
+      emailInput.focus();
+      return;
+    }
+    if (!isValidPassword(password)) {
+      showMessage(alertBox, PASSWORD_RULE, 'danger');
+      passwordInput.focus();
+      return;
+    }
+    if (password !== confirmPassword) {
+      showMessage(alertBox, 'Konfirmasi password tidak cocok.', 'danger');
+      confirmInput.focus();
       return;
     }
 
-    var submitButton = form.querySelector('[type="submit"]');
+    setBusy(submitButton, true, 'Mendaftar...');
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      var name = form.elements.name.value.trim().replace(/\s+/g, ' ');
-      var email = form.elements.email.value.trim().toLowerCase();
-      var password = form.elements.password.value;
-      var confirmPassword = form.elements.confirmPassword.value;
-
-      if (name.length < 2) {
-        showMessage('Nama harus terdiri dari minimal 2 karakter.', 'danger');
-        form.elements.name.focus();
-        return;
-      }
-      if (!form.elements.email.checkValidity()) {
-        showMessage('Masukkan alamat email yang valid.', 'danger');
-        form.elements.email.focus();
-        return;
-      }
-      if (password.length < MIN_PASSWORD_LENGTH) {
-        showMessage('Kata sandi harus terdiri dari minimal 8 karakter.', 'danger');
-        form.elements.password.focus();
-        return;
-      }
-      if (password !== confirmPassword) {
-        showMessage('Konfirmasi kata sandi tidak cocok.', 'danger');
-        form.elements.confirmPassword.focus();
-        return;
-      }
-      if (!window.crypto || !window.crypto.subtle) {
-        showMessage('Pendaftaran membutuhkan browser modern dan server lokal.', 'danger');
-        return;
-      }
-
-      submitButton.disabled = true;
-      loadStaticUsers().then(function (staticUsers) {
-        var demoUsers = readDemoUsers();
-        var emailExists = staticUsers.concat(demoUsers).some(function (user) {
-          return user && typeof user.email === 'string' && user.email.toLowerCase() === email;
-        });
-        if (emailExists) {
-          throw new Error('EMAIL_EXISTS');
-        }
-        return sha256Hex(password).then(function (passwordHash) {
-          demoUsers.push({
-            email: email,
-            name: name,
-            passwordHash: passwordHash
-          });
-          localStorage.setItem(DEMO_USERS_KEY, JSON.stringify(demoUsers));
-          window.location.href = 'login.html?registered=1';
-        });
-      }).catch(function (error) {
-        if (error.message === 'EMAIL_EXISTS') {
-          showMessage('Email sudah terdaftar. Silakan login atau gunakan email lain.', 'danger');
-          return;
-        }
-        console.error('Pendaftaran gagal:', error);
-        showMessage('Pendaftaran gagal. Pastikan situs dijalankan melalui server lokal, lalu coba lagi.', 'danger');
-      }).then(function () {
-        submitButton.disabled = false;
+    try {
+      const result = await apiPost('/api/auth/signup', {
+        name,
+        email,
+        password,
+        confirmPassword
       });
-    });
-  }
 
-  document.addEventListener('DOMContentLoaded', init);
-})();
+      if (result.response.ok) {
+        window.location.assign(result.data && result.data.redirect ? result.data.redirect : '/dashboard.html');
+        return;
+      }
+
+      showMessage(
+        alertBox,
+        errorMessage(result, 'Pendaftaran gagal. Silakan coba lagi.'),
+        'danger'
+      );
+      setBusy(submitButton, false);
+    } catch (error) {
+      console.error('Pendaftaran gagal:', error.message);
+      showMessage(alertBox, 'Tidak dapat menghubungi server. Silakan coba lagi.', 'danger');
+      setBusy(submitButton, false);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initSignupForm);
