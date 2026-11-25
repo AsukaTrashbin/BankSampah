@@ -13,9 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital, wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body class="cb-landing">
 
@@ -38,19 +36,19 @@
     <div class="collapse navbar-collapse" id="cbNav">
       <ul class="navbar-nav cb-nav ms-auto align-items-lg-center">
         <li class="nav-item">
-          <a class="nav-link active" href="#home" aria-current="page">Home</a>
+          <a class="nav-link active" href="index.html" aria-current="page">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#isu-kota">Isu Kota</a>
+          <a class="nav-link" href="IsuKota.html">Isu Kota</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#rancangan">Rancangan</a>
+          <a class="nav-link" href="Komunitas.html">Komunitas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#komunitas">Komunitas</a>
+          <a class="nav-link" href="Kegiatan.html">Kegiatan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#kegiatan">Kegiatan</a>
+          <a class="nav-link" href="SetorSampah.html">Setor Sampah</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#feedback">Feedback</a>
@@ -64,7 +62,7 @@
 </nav>
 
 <!-- ===== Hero ===== -->
-<!-- Ganti gradient placeholder .cb-landing-hero dengan foto kota asli (mis. bandung.jpg) lewat background-image di style.css. -->
+<!-- Ganti gradient placeholder .cb-landing-hero dengan foto kota asli (mis. bandung.jpg) lewat background-image di CSS/style.css. -->
 <header class="cb-landing-hero">
   <div class="container">
     <div class="row">
@@ -386,16 +384,11 @@
       </div>
 
       <div class="col-12 col-lg-8">
-      <div class="cb-map" style="position: relative; height: 480px;">
-        <div id="cb-leaflet-map" style="position: absolute; inset: 0; border-radius: inherit;"></div>
-
-        <article class="cb-activity-card" style="position: absolute; z-index: 1000; bottom: 16px; left: 16px;">
-          <div class="cb-activity-thumb" aria-hidden="true"></div>
-          <div>
-            <h3 class="cb-activity-title">Berkebun bersama warga</h3>
-            <p class="cb-activity-meta">Aksi lingkungan · Bandung</p>
-          </div>
-        </article>
+        <div id="communityMap" class="cb-map" role="region" aria-label="Peta ruang publik"></div>
+        <p class="cb-map-status" id="mapStatus" role="status" aria-live="polite">
+          Memuat lokasi ruang publik...
+        </p>
+        <div class="cb-location-results" id="locationResults" aria-live="polite"></div>
       </div>
     </div>
 
